@@ -14,6 +14,27 @@ body, html {
     background-image: url(/Images/landing_page_background-from-publicdomainpicturesDOTnet.jpg);
 }
 
+#start {
+    padding: 20px 30px;
+    background-color: rgb(196, 196, 196);
+    color: darkred;
+    text-align: center;
+    font-size: larger;
+    font-family: "Play", sans-serif;
+    font-weight: bold;
+    border: 3px solid black;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+#start:hover {
+    background-color: rgb(252, 252, 176);
+    cursor: pointer;
+}
+
 .character-creation-background {
     background-image: url(/Images/character_creation_background-from-publicdomainpicturesDOTnet.jpg);
 }
