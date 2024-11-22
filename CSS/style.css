@@ -1,0 +1,20 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.background-image, .homepage-background, .character-creation-background{
+    height: 100%;           /* Causes image to cover the full screen */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.homepage-background {
+    background-image: url(/Images/landing_page_background-from-publicdomainpicturesDOTnet.jpg);
+}
+
+.character-creation-background {
+    background-image: url(/Images/character_creation_background-from-publicdomainpicturesDOTnet.jpg);
+}
+
