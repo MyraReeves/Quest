@@ -15,7 +15,7 @@ body, html {
 }
 
 .homepage-background {
-    background-image: url(/Images/landing_page_background-from-publicdomainpicturesDOTnet.jpg);
+    background-image: url(../Images/landing_page_background-from-publicdomainpicturesDOTnet.jpg);
 }
 
 #start {
@@ -40,7 +40,7 @@ body, html {
 }
 
 .character-creation-background {
-    background-image: url(/Images/character_creation_background-from-publicdomainpicturesDOTnet.jpg);
+    background-image: url(../Images/character_creation_background-from-publicdomainpicturesDOTnet.jpg);
     background-position: top left;
     /* background-size: contain                    This will fix the overflow but... it makes the image only as tall as the page. Thus it only fills HALF the page */
 }
