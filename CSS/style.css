@@ -10,6 +10,10 @@ body, html {
     background-size: cover;
 }
 
+.background-image{
+    background-color: black;
+}
+
 .homepage-background {
     background-image: url(/Images/landing_page_background-from-publicdomainpicturesDOTnet.jpg);
 }
@@ -37,5 +41,28 @@ body, html {
 
 .character-creation-background {
     background-image: url(/Images/character_creation_background-from-publicdomainpicturesDOTnet.jpg);
+    background-position: top left;
+    /* background-size: contain                    This will fix the overflow but... it makes the image only as tall as the page. Thus it only fills HALF the page */
 }
 
+
+#introHeader {
+    background-color: rgb(235, 245, 220);
+    padding: 10px;
+    width: 100%;
+}
+
+#introParagraph {
+    padding: 10px;
+    width: 100%;
+    font-size: x-large;
+    width: 100%;
+    overflow: hidden;                   /* Ensures the content is not revealed until the animation */
+    white-space: nowrap;                /* Keeps the content on a single line */
+    animation: typing 4s steps(40, end);
+}
+
+@keyframes typing{                      /* Defines the "typing" animation */
+    from { width: 0; } 
+    to { width: 100% }
+  } 
