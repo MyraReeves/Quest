@@ -23,10 +23,16 @@ function createCharacter() {
     introHeader.setAttribute('id', 'introHeader');
     landingPage.appendChild(introHeader);
 
-    const introParagraph = document.createElement('p');
-    introParagraph.setAttribute('id', 'introParagraph');
-    introParagraph.textContent = 'Welcome adventurer!';
-    introHeader.appendChild(introParagraph);
+    const introParagraph1 = document.createElement('p');
+    introParagraph1.setAttribute('class', 'introParagraph');
+    introParagraph1.textContent = 'Welcome adventurer!';
+    const introParagraph2 = document.createElement('p');
+    // introParagraph2.setAttribute('class', 'introParagraph');
+    setTimeout(() => {introParagraph2.setAttribute('class', 'introParagraph')}, 6)
+    // introParagraph2.textContent = 'Use the form below to create your character.';
+    setTimeout(() => {introParagraph2.textContent = 'Use the form below to create your character.'}, 650)
+    introHeader.appendChild(introParagraph1);
+    introHeader.appendChild(introParagraph2);
 
     const characterCreationBackground = document.createElement('div');
     characterCreationBackground.classList.add('character-creation-background');
