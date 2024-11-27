@@ -99,8 +99,9 @@ function createCharacter() {
     fieldset.appendChild(raceLabel);
     const selectRace = document.createElement('select');
     selectRace.setAttribute('name', 'characterRace');
+    selectRace.setAttribute('required', 'true');
     const chooseRace = document.createElement('option');
-    chooseRace.setAttribute('value', "character's race");
+    chooseRace.setAttribute('value', '');
     chooseRace.setAttribute('selected', 'selected');
     chooseRace.setAttribute('disabled', 'true');
     chooseRace.textContent = 'Choose one';
