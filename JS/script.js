@@ -40,3 +40,9 @@ function createCharacter() {
     landingPage.appendChild(characterCreationBackground);
 }
 
+class Character {
+    constructor(name='Jane Doe', race='human') {
+        this.name = name;
+        this.race = race;
+    }
+};
