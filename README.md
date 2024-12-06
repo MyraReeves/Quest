@@ -1,16 +1,21 @@
-# Quest
+# 🧝 Quest 🧝‍♀️
 
 This was the final JavaScript project for the first of three JavaScript classes within earning the _**Full-Stack Development With JavaScript**_ certificate from the University of Washington.
 
 Graded: December 2024
 
-## 📜 Assignment Description
+## 📜 Assignment
 
 > _Your project must be interactive (i.e. must have event listeners).  The user must be able to interact with the document with the mouse or keyboard and have the document change / update._
 >
 > _Your project must include 4 of the 6 following features (but may include more):_
 >
->_One or more Classes (must use static methods and/or prototype methods), testable code (using Jasmine unit tests), one or more timing functions, form fields, one or more fetch requests to a 3rd party API, and set/update/change local storage._
+> * _One or more Classes (must use static methods and/or prototype methods)_
+> * _Testable code (using Jasmine unit tests)_
+> * _One or more timing functions_
+> * _Form fields_
+> * _One or more fetch requests to a 3rd party API_ 
+> * _Set/update/change local storage._
 
 ## 🧙‍♂️ Features
 
@@ -21,6 +26,7 @@ Graded: December 2024
 
 2. **Contains form fields, validates those fields**
     * When the user starts the game, they are asked to fill out a character creation form.
+    * Name and Race are required fields via HTML constraint validation.
 
 3. **Classes / Objects**
     * The information selected by the user within the character creation form is inputed into a character creation class to create their character object.
