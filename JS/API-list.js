@@ -1,3 +1,5 @@
+characterName = "----"
+
 /*  HTTP Status Dogs:    https://http.dog/
 ----------------------------------------------------------------------
 No Content dog = https://http.dog/204
@@ -54,6 +56,7 @@ const requestDenied = () => {
 
 
 
+
 /*  Deck of Cards:      https://www.deckofcardsapi.com/
 ----------------------------------------------------------------------
 Shuffle cards:  https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1
@@ -71,7 +74,7 @@ const backOfCard = () => {
     .then(imageResult => {
         cardBack = imageResult.url;
         document.getElementById("backOfCard").classList.add('result-of-choice');
-        document.getElementById("backOfCard").innerHTML = '<p>As the ---- hurries away, you notice two playing cards laying haphazardly on the ground where he had been standing.</p>  <p>It seems that he accidentally dropped them. <br></p> <img src = "' + cardBack + '"> &emsp; <img src = "' + cardBack + '">'
+        document.getElementById("backOfCard").innerHTML = '<p>As the ---- hurries away, you notice two playing cards laying haphazardly on the ground where he had been standing.</p>  <p>It seems that he accidentally dropped them. <br></p> <div style = "margin: 0 25%;"> <img src = "' + cardBack + '"> &emsp; <img src = "' + cardBack + '"alt = "Two playing card backs decorated with intricate and complex black and white geometric patterns"> </div>'
     })
     .catch(error => console.log(error));
 };
@@ -86,10 +89,12 @@ const generateTwoCards = () => {
         for (let i = 0; i < 2; i++) {
         cards += '<img src="' + twoCards[i].image + '" alt="Image of a ' + twoCards[i].value + " of " + twoCards[i].suit + '"> &emsp;';
         }
-        document.getElementById("generateTwoCards").innerHTML = '<p>You flip the cards over to look at them, and this is what you see... <br></p>' + cards;
+        document.getElementById("generateTwoCards").innerHTML = '<p>You flip the cards over to look at them, and this is what you see... <br></p><div style = "margin: 0 25%;">' + cards + '</div>';
     })
     .catch(error => console.log(error));
 };
+
+
 
 
 /*  NASA Open APIs:     https://api.nasa.gov/
@@ -97,7 +102,23 @@ const generateTwoCards = () => {
 Astronomy Picture of the Day = GET https://api.nasa.gov/planetary/apod
 Example query:  https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
 */
-
+const cosmos = () => {
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
+    .then(response => response.json())
+    .then(results => {
+        document.getElementById("cosmos").classList.add('result-of-choice');
+        const dailyImage = results.url;
+        const altText = results.title;
+        document.getElementById("cosmos").innerHTML = '<p>You pay the fortune teller and sit down.<br><br> She smiles and says, <i>"Hello, ' + characterName + '.  I\'ve been waiting for you."</i> &nbsp; From beneath the table cloth draped over her counter, she removes a crystal ball and invites you to stare deep into the swirling, dark green clouds within it. &nbsp; <i>"Clear your mind and focus only on what is within,"</i> she instructs. . . <br><br>. . . As you focus, the sounds of the bazaar fade and everything else around you drops <br>away. . .  <br><br>. . . To your amazement the clouds within the ball suddenly flash a blinding, neon shade of purple and then slowly part! The following mysterious vision is revealed to you : <br><br></p><img src = "' + dailyImage + '" style = "border-radius: 50%; overflow: hidden; width: 400px; height: 400px; border: 2px solid black; display: block; margin: 0 auto;" alt="Image of ' + altText + '">'
+        
+        // let picture = ""
+        // for (let i = 0; i < 2; i++) {
+        // picture += '<img src="' + dailyImage[i].image + '" alt="Image of a ' + twoCards[i].value + " of " + twoCards[i].suit + '"> &emsp;';
+        // }
+        // document.getElementById("cosmos").innerHTML = '<p>You stare deep into the swirling clouds... <br></p>' + picture;
+    })
+    .catch(error => console.log(error));
+};
 
 
 /*  Weather APIs:
