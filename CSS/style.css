@@ -141,7 +141,14 @@ body, html {
 }
 
 
+.result-of-choice {
+    margin-left: 25%;
+}
 
+
+p {
+    margin-left: 10px;
+}
 
 
 /* Generic button for testing API's: */
