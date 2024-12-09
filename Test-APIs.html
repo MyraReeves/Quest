@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Testing Grounds</title>
+    <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
     <div id="weather">
-        <button type="button" onclick="currentWeather()">Current Weather In Antigone</button>
+        <button type="button" class="weatherButton" onclick="currentWeather()">Current Weather In Antigone</button>
     </div>
+
+    <div id="denied">
+        <button type="button" class="exampleButton" onclick="requestDenied()">Request Denied</button>
+    </div>
+
+    <div id="noContent1">
+        <button type="button" class="exampleButton" onclick="noContentCat()">Empty cat bowl</button>
+    </div>
+
+    <div id="noContent2">
+        <button type="button" class="exampleButton" onclick="noContentDog()">Empty dog bowl</button>
+    </div>
+
+    <div id="foundIt">
+        <button type="button" class="exampleButton" onclick="foundIt()">You found it!</button>
+    </div>
+
+    <div id="generateTwoCards">
+        <button type="button" class="exampleButton" onclick="generateTwoCards()">Generate Two Playing Cards</button>
+    </div>
+
 
     <script src="/JS/API-list.js"></script>
 </body>
