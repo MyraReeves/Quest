@@ -22,7 +22,7 @@ const noContentCat = () => {
         emptyImage = imageResult.url;
         document.getElementById("noContent1").innerHTML = '<img src = "' + emptyImage + '"width = "40%">'
     })
-}
+};
 
 const noContentDog = () => {
     fetch(`https://http.dog/204.jpg`)
@@ -30,28 +30,59 @@ const noContentDog = () => {
         emptyImage = imageResult.url;
         document.getElementById("noContent2").innerHTML = '<img src = "' + emptyImage + '"width = "40%">'
     })
-}
+};
 
 const foundIt = () => {
     fetch(`https://httpgoats.com/302.jpg`)
-    .then(jsonResult => {
-        deniedImage = jsonResult.url;
-        document.getElementById("foundIt").innerHTML = '<img src = "' + deniedImage + '"width="40%">'
+    .then(imageResult => {
+        foundItImage = imageResult.url;
+        document.getElementById("foundIt").innerHTML = '<img src = "' + foundItImage + '"width="40%">'
     })
-}
+};
 
 const requestDenied = () => {
     fetch(`https://http.dog/999.jpg`)
-    .then(jsonResult => {
-        deniedImage = jsonResult.url;
+    .then(imageResult => {
+        deniedImage = imageResult.url;
         document.getElementById("denied").innerHTML = '<img src = "' + deniedImage + '"width="40%">'
     })
-}
+};
+
+
 
 /*  Deck of Cards:      https://www.deckofcardsapi.com/
 ----------------------------------------------------------------------
-*/
+Shuffle cards:  https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1
+(The above will contain a deck_id)
 
+Draw a Card:    https://www.deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=2
+(The count will be the number of cards drawn)
+The above will contain:     value   suit    image
+Tip from website:  replace <<deck_id>> with "new" to create a shuffled deck and draw cards from that deck in the same request.
+
+Back of Card Image: https://www.deckofcardsapi.com/static/img/back.png
+*/
+const backOfCard = () => {
+    fetch(`https://www.deckofcardsapi.com/static/img/back.png`)
+    .then(imageResult => {
+        cardBack = imageResult.url;
+        document.getElementById("backOfCard").innerHTML = '<p>As the ---- hurries away, you notice two playing cards laying haphazardly on the ground where he had been standing.</p>  <p>It seems that he accidentally dropped them. <br></p> <img src = "' + cardBack + '"> &emsp; <img src = "' + cardBack + '">'
+    })
+    .catch(error => console.log(error));
+};
+
+const generateTwoCards = () => {
+    fetch(`https://www.deckofcardsapi.com/api/deck/new/draw/?count=2`)
+    .then(response => response.json())
+    .then(results => {const twoCards = results.cards;
+        let cards = ""
+        for (let i = 0; i < 2; i++) {
+        cards += '<img src="' + twoCards[i].image + '" alt="Image of a ' + twoCards[i].value + " of " + twoCards[i].suit + '"> &emsp;';
+        }
+        document.getElementById("generateTwoCards").innerHTML = '<p>You flip the cards over to look at them, and see... <br></p>' + cards;
+    })
+    .catch(error => console.log(error));
+};
 
 
 /*  NASA Open APIs:     https://api.nasa.gov/
