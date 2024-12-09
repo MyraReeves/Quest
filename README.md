@@ -1,4 +1,4 @@
-# 🧝 Quest 🧝‍♀️
+# 🧝 A Hero's Quest 🧝‍♀️
 
 This was the final JavaScript project for the first of three JavaScript classes within earning the _**Full-Stack Development With JavaScript**_ certificate from the University of Washington.
 
@@ -37,6 +37,4 @@ Graded: December 2024
       * [HTTP Status Dogs](https://http.dog/)
       * [NASA Open APIs](https://api.nasa.gov/)
 
-5. Sets, updates, or changes local storage
-
-6. Testable code
+5. Testable code
