@@ -23,7 +23,7 @@ const noContentCat = () => {
     .then(imageResult => {
         document.getElementById("noContent1").classList.add('result-of-choice');
         emptyImage = imageResult.url;
-        document.getElementById("noContent1").innerHTML = '<img src = "' + emptyImage + '"width = "40%">'
+        document.getElementById("noContent1").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 25%; width: 40%;">'
     })
 };
 
@@ -32,7 +32,7 @@ const noContentDog = () => {
     .then(imageResult => {
         document.getElementById("noContent2").classList.add('result-of-choice');
         emptyImage = imageResult.url;
-        document.getElementById("noContent2").innerHTML = '<img src = "' + emptyImage + '"width = "40%">'
+        document.getElementById("noContent2").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 25%; width: 40%;">'
     })
 };
 
@@ -41,7 +41,7 @@ const foundIt = () => {
     .then(imageResult => {
         document.getElementById("foundIt").classList.add('result-of-choice');
         foundItImage = imageResult.url;
-        document.getElementById("foundIt").innerHTML = '<img src = "' + foundItImage + '"width="40%">'
+        document.getElementById("foundIt").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 25%; width: 40%;">'
     })
 };
 
@@ -50,7 +50,7 @@ const requestDenied = () => {
     .then(imageResult => {
         document.getElementById("denied").classList.add('result-of-choice');
         deniedImage = imageResult.url;
-        document.getElementById("denied").innerHTML = '<img src = "' + deniedImage + '"width="40%">'
+        document.getElementById("denied").innerHTML = '<img src = "' + deniedImage + '" style = "margin: 0 25%; width: 40%;">'
     })
 };
 
@@ -109,7 +109,7 @@ const cosmos = () => {
         document.getElementById("cosmos").classList.add('result-of-choice');
         const dailyImage = results.url;
         const altText = results.title;
-        document.getElementById("cosmos").innerHTML = '<p>You pay the fortune teller and sit down.<br><br> She smiles and says, <i>"Hello, ' + characterName + '.  I\'ve been waiting for you."</i> &nbsp; From beneath the table cloth draped over her counter, she removes a crystal ball and invites you to stare deep into the swirling, dark green clouds within it. &nbsp; <i>"Clear your mind and focus only on what is within,"</i> she instructs. . . <br><br>. . . As you focus, the sounds of the bazaar fade and everything else around you drops <br>away. . .  <br><br>. . . To your amazement the clouds within the ball suddenly flash a blinding, neon shade of purple and then slowly part! The following mysterious vision is revealed to you : <br><br></p><img src = "' + dailyImage + '" style = "border-radius: 50%; overflow: hidden; width: 400px; height: 400px; border: 2px solid black; display: block; margin: 0 auto;" alt="Image of ' + altText + '">'
+        document.getElementById("cosmos").innerHTML = '<p>You pay the fortune teller and sit down.<br><br> She smiles and says, <i>"Hello, ' + characterName + '.  I\'ve been waiting for you."</i> &nbsp; From beneath the velvet tablecloth draped over her counter, she removes a crystal ball and invites you to stare deep into the swirling, dark green clouds within it. &nbsp; <i>"Clear your mind and focus only on what is within,"</i> she instructs. . . <br><br>. . . As you focus, the sounds of the bazaar fade and everything else around you drops <br>away. . .  <br><br>. . . To your amazement the clouds within the ball suddenly flash a blinding, neon shade of purple and then slowly part! The following mysterious vision is revealed to you : <br><br></p><img src = "' + dailyImage + '" style = "border-radius: 50%; overflow: hidden; width: 400px; height: 400px; border: 2px solid black; display: block; margin: 0 auto;" alt="Image of ' + altText + '">'
         
         // let picture = ""
         // for (let i = 0; i < 2; i++) {
