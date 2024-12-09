@@ -15,9 +15,6 @@ homepageBackground.appendChild(startButton)
 // Character creation page:
 function createCharacter() {
     document.getElementById('startGame').remove();
-    // The above line does the same thing as: 
-    // const removeButton = document.getElementById('startGame');
-    // removeButton.remove();
 
     const introHeader = document.createElement('div');
     introHeader.setAttribute('id', 'introHeader');
@@ -25,15 +22,30 @@ function createCharacter() {
 
     const introParagraph1 = document.createElement('p');
     introParagraph1.setAttribute('class', 'introParagraph');
-    introParagraph1.textContent = 'Welcome adventurer!  You have been summoned to aid the people of Antigone.';
+    introParagraph1.textContent = 'Welcome adventurer!';
+
     const introParagraph2 = document.createElement('p');
-    // introParagraph2.setAttribute('class', 'introParagraph');
     setTimeout(() => {
         introParagraph2.setAttribute('class', 'introParagraph')
-        introParagraph2.textContent = 'Use the form below to create your character.'
+        introParagraph2.textContent = 'Your beloved sister has been unjustly imprisoned in the kingdom of Antigone,'
+    }, 500);
+    
+    const introParagraph3 = document.createElement('p');
+    setTimeout(() => {
+        introParagraph3.setAttribute('class', 'introParagraph')
+        introParagraph3.textContent = 'and will be executed in 5 days time!  You must clear her name and rescue her!'
     }, 2500);
+    
+    const introParagraph4 = document.createElement('p');
+    setTimeout(() => {
+        introParagraph4.setAttribute('class', 'introParagraph')
+        introParagraph4.textContent = 'Use the form below to create your character.'
+    }, 4500);
+
     introHeader.appendChild(introParagraph1);
     introHeader.appendChild(introParagraph2);
+    introHeader.appendChild(introParagraph3);
+    introHeader.appendChild(introParagraph4);
 
     const characterCreationBackground = document.createElement('div');
     characterCreationBackground.classList.add('character-creation-background');
@@ -115,7 +127,7 @@ function createCharacter() {
     createHalfling.textContent = 'Halfling';
     const createHuman = document.createElement('option');
     createHuman.textContent = 'Human';
-    fieldset.appendChild(selectRace);
+    fieldset.append(selectRace, document.createElement('br'));
     selectRace.append(chooseRace, createDwarf, createElf, createGnome, createHalfling, createHuman);
 
     const createCharacterButton = document.createElement('button');
