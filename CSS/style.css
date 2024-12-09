@@ -41,6 +41,8 @@ body, html {
 
 .character-creation-background {
     background-image: url(../Images/character_creation_background-from-publicdomainpicturesDOTnet.jpg);
+    max-width: 100%;
+    height: auto;
     background-position: top left;
     /* background-size: contain                    This will fix the overflow but... it makes the image only as tall as the page. Thus it only fills HALF the page */
 }
@@ -55,6 +57,7 @@ body, html {
 
 .introParagraph {
     margin-left: 30px;
+    color: black;
     padding: 10px;
     width: 100%;
     font-size: x-large;
@@ -142,12 +145,17 @@ body, html {
 
 
 .result-of-choice {
-    margin-left: 25%;
+    margin-left: 10%;
+    background-color: rgb(27, 25, 65);
+    border: solid 5px black;
+    width: 70%;
 }
-
 
 p {
     margin-left: 10px;
+    font-family: "Turret Road", sans-serif;
+    font-size: x-large;
+    color: whitesmoke;
 }
 
 
