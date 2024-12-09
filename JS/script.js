@@ -34,13 +34,13 @@ function createCharacter() {
     setTimeout(() => {
         introParagraph3.setAttribute('class', 'introParagraph')
         introParagraph3.textContent = 'and will be executed in 5 days time!  You must clear her name and rescue her!'
-    }, 2500);
+    }, 2600);
     
     const introParagraph4 = document.createElement('p');
     setTimeout(() => {
         introParagraph4.setAttribute('class', 'introParagraph')
         introParagraph4.textContent = 'Use the form below to create your character.'
-    }, 4500);
+    }, 4900);
 
     introHeader.appendChild(introParagraph1);
     introHeader.appendChild(introParagraph2);
@@ -59,7 +59,7 @@ function createCharacter() {
     fieldset.setAttribute('id', 'basicInfo');
     characterForm.appendChild(fieldset);
     const legend = document.createElement('legend');
-    legend.textContent = 'Character Creation';
+    legend.textContent = 'Character';
     fieldset.appendChild(legend);
 
     const nameLabel = document.createElement('label');
