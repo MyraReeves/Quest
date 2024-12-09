@@ -19,6 +19,7 @@ Not Acceptable goat = https://httpgoats.com/406
 const noContentCat = () => {
     fetch(`https://httpcats.com/204.jpg`)
     .then(imageResult => {
+        document.getElementById("noContent1").classList.add('result-of-choice');
         emptyImage = imageResult.url;
         document.getElementById("noContent1").innerHTML = '<img src = "' + emptyImage + '"width = "40%">'
     })
@@ -27,6 +28,7 @@ const noContentCat = () => {
 const noContentDog = () => {
     fetch(`https://http.dog/204.jpg`)
     .then(imageResult => {
+        document.getElementById("noContent2").classList.add('result-of-choice');
         emptyImage = imageResult.url;
         document.getElementById("noContent2").innerHTML = '<img src = "' + emptyImage + '"width = "40%">'
     })
@@ -35,6 +37,7 @@ const noContentDog = () => {
 const foundIt = () => {
     fetch(`https://httpgoats.com/302.jpg`)
     .then(imageResult => {
+        document.getElementById("foundIt").classList.add('result-of-choice');
         foundItImage = imageResult.url;
         document.getElementById("foundIt").innerHTML = '<img src = "' + foundItImage + '"width="40%">'
     })
@@ -43,6 +46,7 @@ const foundIt = () => {
 const requestDenied = () => {
     fetch(`https://http.dog/999.jpg`)
     .then(imageResult => {
+        document.getElementById("denied").classList.add('result-of-choice');
         deniedImage = imageResult.url;
         document.getElementById("denied").innerHTML = '<img src = "' + deniedImage + '"width="40%">'
     })
@@ -66,6 +70,7 @@ const backOfCard = () => {
     fetch(`https://www.deckofcardsapi.com/static/img/back.png`)
     .then(imageResult => {
         cardBack = imageResult.url;
+        document.getElementById("backOfCard").classList.add('result-of-choice');
         document.getElementById("backOfCard").innerHTML = '<p>As the ---- hurries away, you notice two playing cards laying haphazardly on the ground where he had been standing.</p>  <p>It seems that he accidentally dropped them. <br></p> <img src = "' + cardBack + '"> &emsp; <img src = "' + cardBack + '">'
     })
     .catch(error => console.log(error));
@@ -74,12 +79,14 @@ const backOfCard = () => {
 const generateTwoCards = () => {
     fetch(`https://www.deckofcardsapi.com/api/deck/new/draw/?count=2`)
     .then(response => response.json())
-    .then(results => {const twoCards = results.cards;
+    .then(results => {
+        document.getElementById("generateTwoCards").classList.add('result-of-choice');
+        const twoCards = results.cards;
         let cards = ""
         for (let i = 0; i < 2; i++) {
         cards += '<img src="' + twoCards[i].image + '" alt="Image of a ' + twoCards[i].value + " of " + twoCards[i].suit + '"> &emsp;';
         }
-        document.getElementById("generateTwoCards").innerHTML = '<p>You flip the cards over to look at them, and see... <br></p>' + cards;
+        document.getElementById("generateTwoCards").innerHTML = '<p>You flip the cards over to look at them, and this is what you see... <br></p>' + cards;
     })
     .catch(error => console.log(error));
 };
