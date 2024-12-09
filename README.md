@@ -33,6 +33,9 @@ Graded: December 2024
 
 4. **Third party APIs**
     * During gameplay, information is fetched from the following free API provider websites:
+      * [Deck of Cards](https://www.deckofcardsapi.com/)
+      * [HTTP Status Dogs](https://http.dog/)
+      * [NASA Open APIs](https://api.nasa.gov/)
 
 5. Sets, updates, or changes local storage
 
