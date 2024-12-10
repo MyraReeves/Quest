@@ -3,8 +3,8 @@ body, html {
     margin: 0;
 }
 
-.background-image, .homepage-background, .character-creation-background{
-    height: 100%;           /* Causes image to cover the full screen */
+.background-image, .homepage-background, .character-creation-background, .bazaar-background{
+    height: 100%;           /*Causes image to cover the full screen*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,6 +12,8 @@ body, html {
 
 .background-image{
     background-color: black;
+    background-image: url(../Images/teapot-Error.jpg);
+    background-size: 30%;
 }
 
 .homepage-background {
@@ -39,14 +41,18 @@ body, html {
     cursor: pointer;
 }
 
+
+/************************
+*   Character Creation  * 
+*************************/
+
 .character-creation-background {
     background-image: url(../Images/character_creation_background-from-publicdomainpicturesDOTnet.jpg);
     max-width: 100%;
     height: auto;
     background-position: top left;
-    /* background-size: contain                    This will fix the overflow but... it makes the image only as tall as the page. Thus it only fills HALF the page */
+    /* background-size: 50%;                    This will fix the overflow but... it makes the image only as tall as the page. Thus it only fills HALF the page */
 }
-
 
 #introHeader {
     background-color: rgb(235, 245, 220);
@@ -129,6 +135,27 @@ body, html {
     color: forestgreen;
     background-color: #d1cc84;
     box-shadow: 0px 0px 15px 8px white;
+}
+
+
+
+/************************
+*   Game Play - Bazaar  * 
+*************************/
+
+.bazaar-background {
+    background-image: url(../Images/bazaar_background-from-pxfuelDOTcom.jpg);
+    /* opacity: 0.5; */
+}
+
+.textArea {
+    background-color: black;
+    color: white;
+    width: 55%;
+    height: 64%;
+    margin: 1.5% 0 0 18%;
+    /* z-index: 1; */
+    position: absolute;
 }
 
 .weatherButton {
