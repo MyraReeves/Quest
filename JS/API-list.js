@@ -8,6 +8,8 @@ Found goat = https://httpgoats.com/302
 
 Request Denied dog = https://http.dog/999
 
+Bad gateway = https://http.garden/502
+
 This is fine dog = https://http.dog/218
 
 Teapot cat = https://httpcats.com/418
