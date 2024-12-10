@@ -104,18 +104,13 @@ Example query:  https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
 */
 const cosmos = () => {
     fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
+    // Note:  Due to uploading this to GitHub, I am refraining from using the personal/private API key that was assigned to me by NASA. NASA allows up to 30 requests per IP address per hour with the DEMO_KEY (up to 50 per day), which should be more than enough for this student class project.  If needed for the in-class project demonstration, I will temporarily change it to my personal key on my local machine only, without uploading the change to GitHub.😁
     .then(response => response.json())
     .then(results => {
         document.getElementById("cosmos").classList.add('result-of-choice');
         const dailyImage = results.url;
         const altText = results.title;
         document.getElementById("cosmos").innerHTML = '<p>You pay the fortune teller and sit down.<br><br> She smiles and says, <i>"Hello, ' + characterName + '.  I\'ve been waiting for you."</i> &nbsp; From beneath the velvet tablecloth draped over her counter, she removes a crystal ball and invites you to stare deep into the swirling, dark green clouds within it. &nbsp; <i>"Clear your mind and focus only on what is within,"</i> she instructs. . . <br><br>. . . As you focus, the sounds of the bazaar fade and everything else around you drops <br>away. . .  <br><br>. . . To your amazement the clouds within the ball suddenly flash a blinding, neon shade of purple and then slowly part! The following mysterious vision is revealed to you : <br><br></p><img src = "' + dailyImage + '" style = "border-radius: 50%; overflow: hidden; width: 400px; height: 400px; border: 2px solid black; display: block; margin: 0 auto;" alt="Image of ' + altText + '">'
-        
-        // let picture = ""
-        // for (let i = 0; i < 2; i++) {
-        // picture += '<img src="' + dailyImage[i].image + '" alt="Image of a ' + twoCards[i].value + " of " + twoCards[i].suit + '"> &emsp;';
-        // }
-        // document.getElementById("cosmos").innerHTML = '<p>You stare deep into the swirling clouds... <br></p>' + picture;
     })
     .catch(error => console.log(error));
 };
@@ -168,8 +163,21 @@ https://zenquotes.io/api/[mode]/[key]?option1=value&option2=value
 [key] = **OPTIONAL**  API key for use with premium subscriptions
 [options] = **OPTIONAL**  Additional options
 
+Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a>
+
 Instructions for How to Fetch Quotes for your Website or App ( https://zenquotes.io/api/quotes/[your_key] ):
     "This is the most efficient way for developers to load random quotes. Use the standard [quotes] API call and store the results as a variable in your project. This will keep a cache of quotes that you can loop locally rather than calling the server each time you want to display a new quote.
 
     After a set interval (an hour or so), call the ZenQuotes API again to refresh your local app cache. Using this method will keep load times down and free up resources for others as your user base increases. In the event the API service is unavailable, you will still have an available data set in your app to pull from."
 */
+
+const getQuote = () => {
+    fetch(`https://zenquotes.io/api/random`)
+    .then(response => response.json())
+    .then(quote => {
+        document.getElementById("quote").classList.add('result-of-choice');
+        const dailyQuote = quote.q;
+        document.getElementById("quote").innerHTML = '<p>"' + dailyQuote + '"</p>'
+    })
+    .catch(error => console.log(error));
+};
