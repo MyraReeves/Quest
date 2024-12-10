@@ -266,11 +266,11 @@ const enterBazaar = (name, gender, race) => {
     const textArea = document.createElement('div');
     textArea.classList.add('textArea');
     textArea.setAttribute('id', 'bazaarInteractions');
-    textArea.innerHTML = '<p>Brave ' + chosenName +', you have journeyed long, hard, and far from home on your quest. Shortly after sunset, you finally reach where the forested path gives way to a large open expanse outside the stone walls of Antigone.</p>    <img src="/Images/moonlit_forest_path_tiny.jpg" alt="Small image of a moonlit forest path just before an opening"><p>As you set up camp for the night, you begin hearing the sounds of many lively conversations coming from nearby. When you investigate, you find a bustling outdoor bazaar. A perfect opportunity to gather more information!</p>    <img src="/Images/pxfuelDOTcom_market-bazaar-people-crowd-night-evening_TINY.jpg" alt="Small image of a crowded, fire-lit, outdoor market in the early evening">    <div id="bazaarButtons">Choose whether to go to:<button type="button" class="choiceButton" onclick="">Food Vendors</button><button type="button" class="choiceButton" onclick="">Merchant Tents</button><button type="button" class="choiceButton" onclick="">Entertainment Zone</button></div>';
+    textArea.innerHTML = '<p>Brave ' + chosenName +', you have journeyed long, hard, and far from home on your quest. Shortly after sunset, you finally reach where the forested path gives way to a large open expanse outside the stone walls of Antigone.</p>    <img src="./Images/moonlit_forest_path_tiny.jpg" alt="Small image of a moonlit forest path just before an opening"><p>As you set up camp for the night, you begin hearing the sounds of many lively conversations coming from nearby. When you investigate, you find a bustling outdoor bazaar. A perfect opportunity to gather more information!</p>    <img src="./Images/pxfuelDOTcom_market-bazaar-people-crowd-night-evening_TINY.jpg" alt="Small image of a crowded, fire-lit, outdoor market in the early evening">    <div id="bazaarButtons">Choose whether to go to:<button type="button" class="choiceButton" onclick="">Food Vendors</button><button type="button" class="choiceButton" onclick="">Merchant Tents</button><button type="button" class="choiceButton" onclick="">Entertainment Zone</button></div>';
     bazaarBackground.appendChild(textArea);
 
 
-    
+
     /*
     let magician = '';
     let magicianName = 'Bordan the Magnificent';
