@@ -221,8 +221,6 @@ class Human extends Character {
 
 
 
-
-
 // //////////////////////////////////
 // Chapter 1:  The evening bazaar //
 // ////////////////////////////////
@@ -266,7 +264,7 @@ const enterBazaar = (name, gender, race) => {
     const textArea = document.createElement('div');
     textArea.classList.add('textArea');
     textArea.setAttribute('id', 'bazaarInteractions');
-    textArea.innerHTML = '<p>Brave ' + chosenName +', you have journeyed long, hard, and far from home on your quest. Shortly after sunset, you finally reach where the forested path gives way to a large open expanse outside the stone walls of Antigone.</p>    <img src="./Images/moonlit_forest_path_tiny.jpg" alt="Small image of a moonlit forest path just before an opening"><p>As you set up camp for the night, you begin hearing the sounds of many lively conversations coming from nearby. When you investigate, you find a bustling outdoor bazaar. A perfect opportunity to gather more information!</p>    <img src="./Images/pxfuelDOTcom_market-bazaar-people-crowd-night-evening_TINY.jpg" alt="Small image of a crowded, fire-lit, outdoor market in the early evening">    <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="">Food Vendors</button><button type="button" id="bazaarMerchants" class="choiceButton" onclick="">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="">Entertainment Zone</button></div>';
+    textArea.innerHTML = '<p class="short-paragraph">Brave ' + chosenName +', you have journeyed long, hard, and far from home on your quest. Shortly after sunset, you finally reach where the forested path gives way to a large open expanse outside the stone walls of Antigone.</p>    <img src="./Images/moonlit_forest_path_tiny.jpg" alt="Small image of a moonlit forest path just before an opening"><p class="short-paragraph">As you set up camp for the night, you begin hearing the sounds of many lively conversations coming from nearby. When you investigate, you find a bustling outdoor bazaar. A perfect opportunity to gather more information!</p>    <img src="./Images/pxfuelDOTcom_market-bazaar-people-crowd-night-evening_TINY.jpg" alt="Small image of a crowded, fire-lit, outdoor market in the early evening">    <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="">Food Vendors</button><button type="button" id="bazaarMerchants" class="choiceButton" onclick="">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="">Entertainment Zone</button></div>';
     bazaarBackground.appendChild(textArea);
 
 
@@ -290,11 +288,11 @@ const enterBazaar = (name, gender, race) => {
 
 
     merchantVendors = () => {
-        // document.getElementById('bazaarInteractions').remove();
+        document.getElementById('bazaarInteractions').remove();
         const merchantZone = document.createElement('div');
         merchantZone.classList.add('textArea');
         merchantZone.setAttribute("id", "merchant-zone");
-        merchantZone.innerHTML = '<p>Merchants fill the bulk of the outdoor market and encircle most of its perimeter, with some of the most successful vendors using semi-permanent structures directly against the outside of the city\'s walls to facilitate their trade. The area is alive with people shuffling hither and yon, and the sound of craftspeople hawking their wares rings through the brisk night air. Stalls offering every manner of goods litter the ends of the street, everything from beautiful jewelry to carpentry tools. From weaponry to painted vases. There is a sense that anything in the known world could be found in this market. That is, if you have the coin to pay for it.<br><br></p>      <img src="./Images/merchants_tiny-from-pxfuelDOTcom.jpg" alt="Small image of various metal and fabric goods piled up against stone walls in an outdoor marketplace, with a path leading thru the middle">';
+        merchantZone.innerHTML = '<p>Merchants fill the bulk of the outdoor market and encircle most of its perimeter, with some of the wealthiest vendors using semi-permanent structures directly against the outside of the city\'s walls to facilitate their trade. The area is alive with people shuffling hither and yon, and the sound of craftspeople hawking their wares rings through the brisk night air. Stalls offering every manner of goods litter the borders of the pathways, everything from beautiful jewelry to carpentry tools. From weaponry to painted vases, there is a sense that anything in the known world could be found in this market, if you have the coin to pay for it.<br><br></p>      <img src="./Images/merchants_tiny-from-pxfuelDOTcom.jpg" alt="Small image of various metal and fabric goods piled up against stone walls in an outdoor marketplace, with a path leading thru the middle">';
         bazaarBackground.appendChild(merchantZone);
 
         const fortuneTellerName = 'Agnes Nutter';
@@ -309,12 +307,12 @@ const enterBazaar = (name, gender, race) => {
 
 
 
-    const entertainmentTent = () => {
-        // document.getElementById('bazaarInteractions').remove();
+    const entertainmentTents = () => {
+        document.getElementById('bazaarInteractions').remove();
         const entertainmenttZone = document.createElement('div');
         entertainmenttZone.classList.add('textArea');
-        entertainmenttZone.setAttribute("id", "food-zone");
-        entertainmenttZone.innerHTML = '<p>Multi-colored tents gently sway in the night breeze, carrying a colorful cacophony of cheerful sounds. Musical notes drift into the night air, mixing above the hard-packed earth to form its own unique song.  Scattered between the small tents, open-air wooden stage platforms offer entertainment for all walks of life. Bards and poets tell tales of beauty and love lost, circus performers dazzle onlookers with their acrobatic feats, and vagrants and drunkards wander through the crowd proclaiming their laments.<br><br></p>       <img src="./Images/bazaar_entertainers1.jpg" alt="Two musicians in turbans and robes sit in front of the sunset playing stringed instruments"><img src="./Images/bazaar_entertainers2.jpg" alt="A green skinned juggler performs on a nautical-themed stage"><img src="./Images/bazaar_entertainers3-1.jpg" alt="A bare-chested man covered in tribal markings holds a column of fire"><img src="./Images/bazaar_entertainers4.jpg" alt="The silhouette of an aerial acrobat posed high in the air in front of the sunset"><img src="./Images/bazaar_entertainers3-2.jpg" alt="A figure dances in front of a line of fire"><img src="./Images/bazaar_entertainers6.jpg" alt="An old male musician with interesting hair and robes plays a large, wooden, stringed instrument">    <p>In the center of the dusty area there sits an eye-catching, tent, larger than the rest and lavishly decorated in a shimmering combination of gold and velvet fabric. Against the starry sky, it is a small mountain of painted canvas and torch light, standing in stark contrast to the darkness above.</p>';
+        entertainmenttZone.setAttribute("id", "entertainment-zone");
+        entertainmenttZone.innerHTML = '<p>Multi-colored canvas tents gently sway in the night breeze, carrying a colorful cacophony of cheerful sounds. Musical notes drift into the night air, mixing above the hard-packed earth to form its own unique song.  Scattered between the small tents, open-air wooden stage platforms offer entertainment for all walks of life. Bards and poets tell tales of beauty and love lost, circus performers dazzle onlookers with their acrobatic feats, and vagrants and drunkards wander through the crowd proclaiming their laments.</p>       <img src="./Images/bazaar_entertainers1.jpg" alt="Two musicians in turbans and robes sit in front of the sunset playing stringed instruments"><img src="./Images/bazaar_entertainers2.jpg" alt="A green skinned juggler performs on a nautical-themed stage"><img src="./Images/bazaar_entertainers3-1.jpg" alt="A bare-chested man covered in tribal markings holds a column of fire"><img src="./Images/bazaar_entertainers4.jpg" alt="The silhouette of an aerial acrobat posed high in the air in front of the sunset"><img src="./Images/bazaar_entertainers3-2.jpg" alt="A figure dances in front of a line of fire"><img src="./Images/bazaar_entertainers6.jpg" alt="An old male musician with interesting hair and robes plays a large, wooden, stringed instrument">    <p>In the center of the dusty area there sits an eye-catching tent, larger than the rest and lavishly decorated in a bold combination of shimmering gold and dark velvet. Against the starry sky, this tent is a mountain of exotic fabrics and torch light, standing in stark contrast to the darkness above.</p><br><br>      <div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton" onclick = "">Enter the tent</button><button type="button" id="shellGame" class="choiceButton">Visit a game tent</button><button type="button" id="watchShow" class="choiceButton" onclick="">Attend a show</button></div>';
         bazaarBackground.appendChild(entertainmenttZone);
 
         let magician = '';
@@ -339,19 +337,31 @@ const enterBazaar = (name, gender, race) => {
         };
 
         magician.logInstanceToConsole();
+
+        let enterBordanTent = () => {
+            document.getElementById('entertainment-zone').remove();
+            fetch(`https://http.dog/999.jpg`)
+            .then(imageResult => {
+                deniedImage = imageResult.url;
+                const openTent = document.createElement('div');
+                openTent.setAttribute("id", "magicianTent");
+                openTent.classList.add('result-of-choice');
+                openTent.innerHTML = '<img src = "' + deniedImage + '" style = "margin: 0 30%; width: 40%;"><p>As you reach out your hand to pull back the entrance flap, an angry voice barks, <i>"Can\'t you see the sign!?!"</i></p><p>A muscular dwarf dressed in armor labeled \'Security\' on the chest grabs your wrist and steps in front of the entrance.  Stabbing a stubby finger towards a small hanging sign on the side of the tent, she continues, <i>"Bordan the Magnificent is currently on his break in between performances!  Check back again later if you want to see his show!"</i></p><p>Judging by her angry glare, it is probably best to follow her advice instead of making a scene.</p><br><br>  <div id="bazaarButtons"><button type="button" id="fightDwarf" class="choiceButton" onclick = "">Argue with her anyways.<br>No one tells YOU what to do!</button><button type="button" id="shellGame" class="choiceButton">Visit a game tent</button><button type="button" id="watchShow" class="choiceButton" onclick="">Attend a show</button><button type="button" id="backToEntrance" class="choiceButton" onclick="returnToEntrance()">Leave entertainment area</button></div>'
+                bazaarBackground.appendChild(openTent);
+            })
+        }
+        const bordanTentClosed = document.getElementById('bordanTent');
+        bordanTentClosed.addEventListener('click', enterBordanTent);
+    
     };
     const bazaarEntertainment = document.getElementById('bazaarEntertainment');
-    bazaarEntertainment.addEventListener('click', entertainmentTent);
+    bazaarEntertainment.addEventListener('click', entertainmentTents);
 
 
 
-
-
-
-
-    // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors();">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTent();">Entertainment Zone</button></div>
+    // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors();">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTents();">Entertainment Zone</button></div>
 
     // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors();">Food Vendors</button><button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors();">Merchant Tents</button></div>
 
-    // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors();">Food Vendors</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTent();">Entertainment Zone</button></div>
+    // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors();">Food Vendors</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTents();">Entertainment Zone</button></div>
 };
