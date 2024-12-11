@@ -22,6 +22,8 @@ Graded: December 2024
 1. **Timing functions**
     * When the user starts the game, they are presented with a welcome text introducing them to the plot of the game.  This text (above the character creation form) appears on the screen letter-by-letter using CSS.  The animation code I used would have revealed all paragraphs in a screen-high, vertical, left-to-right transition wipe fashion.  So I used a timed delay for the addition of each new paragraph to the DOM, that way letters in the next paragraph would not begin to appear until after the last word in the previous paragraph had finished appearing.
 
+    * The project deadline prevented me from being able to implement the same CSS effect with the storyline narration that appears on later pages, but in the future I would like to do so.
+
     * After the user creates a character and begins the game, an unseen timer starts.  Once that timer reaches zero, a function is called.  Currently, that function ends gameplay with a "To Be Continued..." screen.  In the future, I would like it to add a timer that involves finding an item or performing a task, and if the item has not been found (or task has not been completed) before the timer reaches zero, then the player loses the game.
 
 2. **Contains form fields, validates those fields**
