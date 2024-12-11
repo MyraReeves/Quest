@@ -53,7 +53,7 @@ const requestDenied = () => {
     .then(imageResult => {
         document.getElementById("denied").classList.add('result-of-choice');
         deniedImage = imageResult.url;
-        document.getElementById("denied").innerHTML = '<img src = "' + deniedImage + '" style = "margin: 0 25%; width: 40%;">'
+        document.getElementById("denied").innerHTML = '<img src = "' + deniedImage + '" style = "margin: 0 25%; width: 40%;"><p>As you reach your hand out to pull back the entrance flap, an angry voice barks out, <i>"Can\'t you see the sign!?!"</i>  A muscular dwarf dressed in armor labeled \'Security\' on the chest grabs your wrist and steps in front of the entrance.  Stabbing a stubby finger towards a small hanging sign on the side of the tent, she continues, <i>"Bordan the Magnificent is currently on his break in between performances!  Check back again later if you want to see his show!"</i>  Judging by her angry glare, you decide it is probably best to follow her advice instead of making a scene.</p>'
     })
 };
 
