@@ -232,7 +232,7 @@ const enterBazaar = (name, gender, race) => {
     const chosenRace = race;
 
     const baseCharacter = new Character(chosenName, chosenRace, chosenGender);
-    console.log("\nBase of character created by user:", baseCharacter, "\n\n");
+    console.log("\nPrototype base of character created by user:", baseCharacter, "\n\n");
 
     let playerCharacter = '';
     if (chosenRace === 'Dwarf'){
@@ -266,34 +266,82 @@ const enterBazaar = (name, gender, race) => {
     const textArea = document.createElement('div');
     textArea.classList.add('textArea');
     textArea.setAttribute('id', 'bazaarInteractions');
-    textArea.innerHTML = '<p>Brave ' + chosenName +', you have journeyed long, hard, and far from home on your quest. Shortly after sunset, you finally reach where the forested path gives way to a large open expanse outside the stone walls of Antigone.</p>    <img src="./Images/moonlit_forest_path_tiny.jpg" alt="Small image of a moonlit forest path just before an opening"><p>As you set up camp for the night, you begin hearing the sounds of many lively conversations coming from nearby. When you investigate, you find a bustling outdoor bazaar. A perfect opportunity to gather more information!</p>    <img src="./Images/pxfuelDOTcom_market-bazaar-people-crowd-night-evening_TINY.jpg" alt="Small image of a crowded, fire-lit, outdoor market in the early evening">    <div id="bazaarButtons">Choose whether to go to:<button type="button" class="choiceButton" onclick="">Food Vendors</button><button type="button" class="choiceButton" onclick="">Merchant Tents</button><button type="button" class="choiceButton" onclick="">Entertainment Zone</button></div>';
+    textArea.innerHTML = '<p>Brave ' + chosenName +', you have journeyed long, hard, and far from home on your quest. Shortly after sunset, you finally reach where the forested path gives way to a large open expanse outside the stone walls of Antigone.</p>    <img src="./Images/moonlit_forest_path_tiny.jpg" alt="Small image of a moonlit forest path just before an opening"><p>As you set up camp for the night, you begin hearing the sounds of many lively conversations coming from nearby. When you investigate, you find a bustling outdoor bazaar. A perfect opportunity to gather more information!</p>    <img src="./Images/pxfuelDOTcom_market-bazaar-people-crowd-night-evening_TINY.jpg" alt="Small image of a crowded, fire-lit, outdoor market in the early evening">    <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="">Food Vendors</button><button type="button" id="bazaarMerchants" class="choiceButton" onclick="">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="">Entertainment Zone</button></div>';
     bazaarBackground.appendChild(textArea);
 
 
 
-    /*
-    let magician = '';
-    let magicianName = 'Bordan the Magnificent';
-    let magicianRace = chosenRace;
-    let magicianGender = 'Male';
+    const foodVendors = () => {
+        document.getElementById('bazaarInteractions').remove();
+        const foodZone = document.createElement('div');
+        foodZone.classList.add('textArea');
+        foodZone.setAttribute("id", "food-zone");
+        foodZone.innerHTML = '<p>You are famished after a long day of travel.  Strolling </p><div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors();">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTent();">Entertainment Zone</button></div>';
+        bazaarBackground.appendChild(foodZone);
 
-    if (chosenRace === 'Dwarf'){
-        magician = new Dwarf('MAGICIAN', magicianName, magicianRace, magicianGender);
-    }
-    else if (chosenRace === 'Elf'){
-        magician = new Elf('MAGICIAN', magicianName, magicianRace, magicianGender);
-    }
-    else if (chosenRace === 'Gnome'){
-        magician = new Gnome('MAGICIAN', magicianName, magicianRace, magicianGender);
-    }
-    else if (chosenRace === 'Halfling'){
-        magician = new Halfling('MAGICIAN', magicianName, magicianRace, magicianGender);
-    }
-    else {
-        magician = new Human('MAGICIAN', magicianName, magicianRace, magicianGender);
+        const potatoSausageVendorName = 'Tobold Bilberry';
+        const potatoSausageVendorRace = 'Halfling';
+        const potatoSausageVendorGender = 'Male';
+        const potatoSausageVendor = new Halfling('FOOD VENDOR', potatoSausageVendorName, potatoSausageVendorRace, potatoSausageVendorGender);
+        potatoSausageVendor.logInstanceToConsole();
     };
+    const bazaarFood = document.getElementById('bazaarFood');
+    bazaarFood.addEventListener('click', foodVendors);
 
-    magician.logInstanceToConsole();
-    */
+
+
+    const entertainmentTent = () => {
+        // document.getElementById('bazaarInteractions').remove();
+        const entertainmenttZone = document.createElement('div');
+        entertainmenttZone.classList.add('textArea');
+        entertainmenttZone.setAttribute("id", "food-zone");
+        entertainmenttZone.innerHTML = '<p>Colorful tents from all walks of life gently sway in the breeze that carries a cacophony of sound. Music from all corners of the world, dancing together in the song of the bizzar. Bards and poets tell tales of beauty and love lost. Vagrants and drunkards wander through the crowd adding their laments. At the end of the cobbled road there sits a large circus tent, a mountain of painted canvas and torch light that stands in stark contrast to the darkness.</p>';
+        bazaarBackground.appendChild(entertainmenttZone);
+
+        let magician = '';
+        let magicianName = 'Bordan the Magnificent';
+        let magicianRace = chosenRace;
+        let magicianGender = 'Male';
+
+        if (chosenRace === 'Dwarf'){
+            magician = new Dwarf('MAGICIAN', magicianName, magicianRace, magicianGender);
+        }
+        else if (chosenRace === 'Elf'){
+            magician = new Elf('MAGICIAN', magicianName, magicianRace, magicianGender);
+        }
+        else if (chosenRace === 'Gnome'){
+            magician = new Gnome('MAGICIAN', magicianName, magicianRace, magicianGender);
+        }
+        else if (chosenRace === 'Halfling'){
+            magician = new Halfling('MAGICIAN', magicianName, magicianRace, magicianGender);
+        }
+        else {
+            magician = new Human('MAGICIAN', magicianName, magicianRace, magicianGender);
+        };
+
+        magician.logInstanceToConsole();
+    };
+    const bazaarEntertainment = document.getElementById('bazaarEntertainment');
+    bazaarEntertainment.addEventListener('click', entertainmentTent);
+
+
+
+    merchantVendors = () => {
+        // document.getElementById('bazaarInteractions').remove();
+        const merchantZone = document.createElement('div');
+        merchantZone.classList.add('textArea');
+        merchantZone.setAttribute("id", "merchant-zone");
+        merchantZone.innerHTML = '<p></p><div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors();">Food Vendors</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTent();">Entertainment Zone</button></div>';
+        bazaarBackground.appendChild(merchantZone);
+
+        const fortuneTellerName = 'Agnes Nutter';
+        const fortuneTellerRace = 'Human';
+        const fortuneTellerGender = 'Female';
+        const fortuneTeller = new Human('FORTUNE TELLER', fortuneTellerName, fortuneTellerRace, fortuneTellerGender);
+        fortuneTeller.logInstanceToConsole();
+    };
+    const bazaarMerchants = document.getElementById('bazaarMerchants');
+    bazaarMerchants.addEventListener('click', merchantVendors);
+
 
 };
