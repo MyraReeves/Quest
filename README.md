@@ -29,7 +29,7 @@ Graded: December 2024
     * Name and Race are required fields via HTML constraint validation.
 
 3. **Classes / Objects**
-    * The information selected by the user within the character creation form is inputed into a character creation class to create their PlayerCharacter object.
+    * The information selected by the user within the character creation form is inputed into a prototype Character class.  A PlayerCharacter object with more specific attributes is then created using a race-specific "extends" class that inherits from the parent prototype.  NPCs are created during the course of the game using the same group of child extension classes.
 
 4. **Third party APIs**
     * During gameplay, information is fetched from the following free API provider websites:
