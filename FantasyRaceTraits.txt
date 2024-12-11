@@ -1,0 +1,50 @@
+Traits:
+-----------------------
+Dwarf 
+Classic fantasy trait = Hardy resilience
+Night vision = 3 (highest), use of magic = 1 (lowest), use of handheld weapons = 3 (highest), stealth = 1 (lowest)
+Interaction with dwarves = 3 (highest)
+Interaction with elves = 1 (lowest)
+Interaction with gnomes = 2 (baseline)
+Interaction with halflings = 2.5 (slightly more fond)
+Interaction with humans = 2 (baseline)
+
+
+Elf
+Classic fantasy trait = Live a long time, good perception (smell, eyesight, etc.), 
+Night vision = 2 (better than humans), use of magic = 3 (highest), use of handheld weapons = 3 (highest), stealth = 2 (baseline)
+Interaction with dwarves = 1 (lowest)
+Interaction with elves = 3 (highest)
+Interaction with gnomes = 2 (baseline)
+Interaction with halflings = 2.5 (slightly more fond)
+Interaction with humans = 2.5 (slightly more fond)
+
+
+Gnome
+Classic fantasy trait = Cunning techno-nerds 
+Night vision = 3 (highest), use of magic = 3 (highest), use of handheld weapons = 2 (baseline), stealth = 3 (highest)
+Interaction with dwarves = 2 (baseline)
+Interaction with elves = 2 (baseline)
+Interaction with gnomes = 3 (highest)
+Interaction with halflings = 2.5 (slightly more fond)
+Interaction with humans = 1 (lowest)
+
+
+Halfling
+Classic fantasy trait = Nimble and stealthy, 
+Night vision = 2 (better than humans), use of magic = 1 (lowest), use of weapons = 1 (lowest), stealth = 3 (highest)
+Interaction with dwarves = 2.5 (fond),
+Interaction with elves = 2.5 (fond)
+Interaction with gnomes = 2.5 (fond)
+Interaction with halflings = 3 (highest)
+Interaction with humans = 2.5 (fond)
+
+
+Human
+Classic fantasy trait = Versatile and resourceful, 
+Night vision = 1 (poor), use of magic = 2 (baseline), use of weapons = 2 (baseline), stealth = 2 (baseline)
+Interaction with dwarves = 2 (baseline),
+Interaction with elves = 2.5 (fond)
+Interaction with gnomes = 1 (lowest due to lack of familiarity)
+Interaction with halflings = 2.5 (fond)
+Interaction with humans = 3 (highest)
