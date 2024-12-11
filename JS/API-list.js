@@ -9,6 +9,7 @@ Found goat = https://httpgoats.com/302
 Request Denied dog = https://http.dog/999
 
 Bad gateway = https://http.garden/502
+Bad gateway goat = https://httpgoats.com/502
 
 This is fine dog = https://http.dog/218
 
@@ -103,6 +104,8 @@ const generateTwoCards = () => {
 ----------------------------------------------------------------------
 Astronomy Picture of the Day = GET https://api.nasa.gov/planetary/apod
 Example query:  https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
+
+********** TO-DO:  Replace characterName with playerCharacter.name when integrating into script.js  *********
 */
 const cosmos = () => {
     fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
