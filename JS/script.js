@@ -276,7 +276,7 @@ const enterBazaar = (name, gender, race) => {
         const foodZone = document.createElement('div');
         foodZone.classList.add('textArea');
         foodZone.setAttribute("id", "food-zone");
-        foodZone.innerHTML = '<p>You are famished after a long day of travel.  Strolling </p><div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors();">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTent();">Entertainment Zone</button></div>';
+        foodZone.innerHTML = '<p>You are famished after a long day of travel.  Strolling </p>';
         bazaarBackground.appendChild(foodZone);
 
         const potatoSausageVendorName = 'Tobold Bilberry';
@@ -289,13 +289,32 @@ const enterBazaar = (name, gender, race) => {
     bazaarFood.addEventListener('click', foodVendors);
 
 
+    merchantVendors = () => {
+        // document.getElementById('bazaarInteractions').remove();
+        const merchantZone = document.createElement('div');
+        merchantZone.classList.add('textArea');
+        merchantZone.setAttribute("id", "merchant-zone");
+        merchantZone.innerHTML = '<p>Merchants fill the bulk of the outdoor market and encircle most of its edges, with some of the most successful vendors using semi-permanent structures directly against the outside of the city\'s walls to facilitate their trade. The area is alive with people shuffling hither and yon, and the sound of craftspeople hawking their wares rings through the brisk night air. Stalls offering every manner of goods litter the ends of the street, everything from beautiful jewelry to carpentry tools. From fresh fish to painted vases. There is a sense that anything in the known world could be found in this market. That is, if you have the coin to pay for it.<br><br></p>      <img src="./Images/merchants_tiny-from-pxfuelDOTcom.jpg" alt="Small image of various metal and fabric goods piled up against stone walls in an outdoor marketplace, with a path leading thru the middle">';
+        bazaarBackground.appendChild(merchantZone);
+
+        const fortuneTellerName = 'Agnes Nutter';
+        const fortuneTellerRace = 'Human';
+        const fortuneTellerGender = 'Female';
+        const fortuneTeller = new Human('FORTUNE TELLER', fortuneTellerName, fortuneTellerRace, fortuneTellerGender);
+        fortuneTeller.logInstanceToConsole();
+    };
+    const bazaarMerchants = document.getElementById('bazaarMerchants');
+    bazaarMerchants.addEventListener('click', merchantVendors);
+
+
+
 
     const entertainmentTent = () => {
         // document.getElementById('bazaarInteractions').remove();
         const entertainmenttZone = document.createElement('div');
         entertainmenttZone.classList.add('textArea');
         entertainmenttZone.setAttribute("id", "food-zone");
-        entertainmenttZone.innerHTML = '<p>Colorful tents from all walks of life gently sway in the breeze that carries a cacophony of sound. Music from all corners of the world, dancing together in the song of the bizzar. Bards and poets tell tales of beauty and love lost. Vagrants and drunkards wander through the crowd adding their laments. At the end of the cobbled road there sits a large circus tent, a mountain of painted canvas and torch light that stands in stark contrast to the darkness.</p>';
+        entertainmenttZone.innerHTML = '<p>Multi-colored tents gently sway in the night breeze, carrying a colorful cacophony of sound. Segments of musical notes from all corners of the world drift out into the night air, mixing on the dust-covered pathways to form a unique song.  Scattered between the small tents, open air wooden stage platforms offer entertainment for all walks of life. Bards and poets tell tales of beauty and love lost, circus performers dazzle onlookers with their acrobatic feats, and vagrants and drunkards wander through the crowd proclaiming their laments. In the center of the dirt area there sits an eye-catching, tent, larger than the rest and lavishly decorated in a shimmering combination of gold and velvet fabric. Against the starry sky, it is a small mountain of painted canvas and torch light, standing in stark contrast to the darkness above.</p>';
         bazaarBackground.appendChild(entertainmenttZone);
 
         let magician = '';
@@ -326,22 +345,13 @@ const enterBazaar = (name, gender, race) => {
 
 
 
-    merchantVendors = () => {
-        // document.getElementById('bazaarInteractions').remove();
-        const merchantZone = document.createElement('div');
-        merchantZone.classList.add('textArea');
-        merchantZone.setAttribute("id", "merchant-zone");
-        merchantZone.innerHTML = '<p></p><div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors();">Food Vendors</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTent();">Entertainment Zone</button></div>';
-        bazaarBackground.appendChild(merchantZone);
-
-        const fortuneTellerName = 'Agnes Nutter';
-        const fortuneTellerRace = 'Human';
-        const fortuneTellerGender = 'Female';
-        const fortuneTeller = new Human('FORTUNE TELLER', fortuneTellerName, fortuneTellerRace, fortuneTellerGender);
-        fortuneTeller.logInstanceToConsole();
-    };
-    const bazaarMerchants = document.getElementById('bazaarMerchants');
-    bazaarMerchants.addEventListener('click', merchantVendors);
 
 
+
+
+    // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors();">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTent();">Entertainment Zone</button></div>
+
+    // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors();">Food Vendors</button><button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors();">Merchant Tents</button></div>
+
+    // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors();">Food Vendors</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTent();">Entertainment Zone</button></div>
 };
