@@ -330,7 +330,7 @@ const enterBazaar = (name, gender, race) => {
         const entertainmenttZone = document.createElement('div');
         entertainmenttZone.classList.add('textArea');
         entertainmenttZone.setAttribute("id", "entertainment-zone");
-        entertainmenttZone.innerHTML = '<p>Multi-colored canvas tents gently sway in the night breeze, carrying a colorful cacophony of cheerful sounds. Musical notes drift into the night air, mixing above the hard-packed earth to form its own unique song.  Scattered between the small tents, open-air wooden stage platforms offer entertainment for all walks of life. Bards and poets tell tales of beauty and love lost, circus performers dazzle onlookers with their acrobatic feats, and vagrants and drunkards wander through the crowd proclaiming their laments.</p>       <img src="./Images/bazaar_entertainers1.jpg" alt="Two musicians in turbans and robes sit in front of the sunset playing stringed instruments"><img src="./Images/bazaar_entertainers2.jpg" alt="A green skinned juggler performs on a nautical-themed stage"><img src="./Images/bazaar_entertainers3-1.jpg" alt="A bare-chested man covered in tribal markings holds a column of fire"><img src="./Images/bazaar_entertainers4.jpg" alt="The silhouette of an aerial acrobat posed high in the air in front of the sunset"><img src="./Images/bazaar_entertainers3-2.jpg" alt="A figure dances in front of a line of fire"><img src="./Images/bazaar_entertainers6.jpg" alt="An old male musician with interesting hair and robes plays a large, wooden, stringed instrument">    <p>In the center of the dusty area there sits an eye-catching tent, larger than the rest and lavishly decorated in a bold combination of shimmering gold and dark velvet. Against the starry sky, this tent is a mountain of exotic fabrics and torch light, standing in stark contrast to the darkness above.</p><br><br>      <div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton" onclick = "">Enter the tent</button><button type="button" id="shellGame" class="choiceButton">Visit gaming area</button><button type="button" id="watchShow" class="choiceButton" onclick="">Attend a show</button></div>';
+        entertainmenttZone.innerHTML = '<p>Multi-colored canvas tents gently sway in the night breeze, carrying a colorful cacophony of cheerful sounds. Musical notes drift into the night air, mixing above the hard-packed earth to form its own unique song.  Scattered between the small tents, open-air wooden stage platforms offer entertainment for all walks of life. Bards and poets tell tales of beauty and love lost, circus performers dazzle onlookers with their acrobatic feats, and vagrants and drunkards wander through the crowd proclaiming their laments.</p>       <img src="./Images/bazaar_entertainers1.jpg" alt="Two musicians in turbans and robes sit in front of the sunset playing stringed instruments"><img src="./Images/bazaar_entertainers2.jpg" alt="A green skinned juggler performs on a nautical-themed stage"><img src="./Images/bazaar_entertainers3-1.jpg" alt="A bare-chested man covered in tribal markings holds a column of fire"><img src="./Images/bazaar_entertainers4.jpg" alt="The silhouette of an aerial acrobat posed high in the air in front of the sunset"><img src="./Images/bazaar_entertainers3-2.jpg" alt="A figure dances in front of a line of fire"><img src="./Images/bazaar_entertainers6.jpg" alt="An old male musician with interesting hair and robes plays a large, wooden, stringed instrument">    <p>In the center of the dusty area there sits an eye-catching tent, larger than the rest and lavishly decorated in a bold combination of shimmering gold and dark velvet. Against the starry sky, this tent is a mountain of exotic fabrics and torch light, standing in stark contrast to the darkness above.</p><br><br>      <div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton">Enter the tent</button><button type="button" id="shellGame" class="choiceButton">Visit gaming area</button><button type="button" id="watchShow" class="choiceButton">Attend a show</button></div>';
         bazaarBackground.appendChild(entertainmenttZone);
 
         let magician = '';
@@ -356,16 +356,24 @@ const enterBazaar = (name, gender, race) => {
 
         magician.logInstanceToConsole();
 
+
+        ///////////////////////////////
+        //      MAGICIAN'S TENT     //
+        /////////////////////////////
         let enterBordanTent = () => {
-            document.getElementById('entertainment-zone').remove();
+            document.getElementById("weatherButton").nextSibling.remove();
             fetch(`https://http.dog/999.jpg`)
             .then(imageResult => {
                 deniedImage = imageResult.url;
                 const openTent = document.createElement('div');
                 openTent.setAttribute("id", "magicianTent");
                 openTent.classList.add('result-of-choice');
-                openTent.innerHTML = '<img src = "' + deniedImage + '" style = "margin: 0 30%; width: 40%;"><p>As you reach out your hand to pull back the entrance flap, an angry voice barks, <i>"Can\'t you see the sign!?!"</i></p><p>A muscular dwarf dressed in armor labeled \'Security\' on the chest grabs your wrist and steps in front of the entrance.  Stabbing a stubby finger towards a small hanging sign on the side of the tent, she continues, <i>"Bordan the Magnificent is currently on his break in between performances!  Check back again later if you want to see his show!"</i></p><p>Judging by her angry glare, it is probably best to follow her advice instead of making a scene.</p><br><br>  <div id="bazaarButtons"><button type="button" id="fightDwarf" class="choiceButton" onclick = "">Argue with her anyways.<br>No one tells YOU what to do!</button><button type="button" id="shellGame" class="choiceButton">Visit gaming area</button><button type="button" id="watchShow" class="choiceButton" onclick="">Attend a show</button><button type="button" id="backToEntrance" class="choiceButton" onclick = "returnToEntrance()">Leave entertainment area</button></div>'
+                openTent.innerHTML = '<img src = "' + deniedImage + '" style = "margin: 0 30%; width: 40%;"><p>As you reach out your hand to pull back the entrance flap, an angry voice barks, <i>"Can\'t you see the sign!?!"</i></p><p>A muscular dwarf dressed in armor labeled \'Security\' on the chest grabs your wrist and steps in front of the entrance.  Stabbing a stubby finger towards a small hanging sign on the side of the tent, she continues, <i>"Bordan the Magnificent is currently on his break in between performances!  Check back again later if you want to see his show!"</i></p><p>Judging by her angry glare, it is probably best to follow her advice instead of making a scene.</p><br><br>  <div id="bazaarButtons"><button type="button" id="fightDwarf" class="choiceButton">Argue with her anyways.<br>No one tells YOU what to do!</button><button type="button" id="shellGame" class="choiceButton">Visit gaming area</button><button type="button" id="watchShow" class="choiceButton">Attend a show</button><button type="button" id="backToEntrance" class="choiceButton" onclick = "returnToEntrance()">Leave entertainment area</button></div>'
                 bazaarBackground.appendChild(openTent);
+
+                document.getElementById('watchShow').addEventListener('click', attendAShow);
+                document.getElementById('shellGame').addEventListener('click', introToShellGame);
+                document.getElementById('backToEntrance').addEventListener('click', returnToEntrance);
             })
         };
         const bordanTentClosed = document.getElementById('bordanTent');
@@ -377,19 +385,52 @@ const enterBazaar = (name, gender, race) => {
 
 
         ///////////////////////////
+        //      SHOW TENT       //
+        /////////////////////////
+        const attendAShow = () => {
+            document.getElementById("weatherButton").nextSibling.remove();
+            const acrobats = document.createElement('div');
+            acrobats.setAttribute("id", "acrobatShow");
+            acrobats.classList.add('textArea');
+            acrobats.innerHTML = '<p class="non-gameplay-notes">Move along! Move along! Nothing to see here! <br> [This is purely a text area for storyline content that is unrelated to this first homework assignment. Since the plot of rescuing your sister is NOT relevant to this homework assignment this page\'s narrative text will be filled in AFTER this homework assignment has been completed.]<br><br><br></p><div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton">Visit that eye-catching<br>gold and velvet draped tent</button><button type="button" id="shellGame" class="choiceButton">Visit gaming area</button><button type="button" id="backToEntrance" class="choiceButton">Leave the entertainment zone</button><br></div>'
+            bazaarBackground.appendChild(acrobats);
+
+            document.getElementById('bordanTent').addEventListener('click', enterBordanTent);
+            document.getElementById('shellGame').addEventListener('click', introToShellGame);
+            document.getElementById('backToEntrance').addEventListener('click', returnToEntrance);
+        };
+        document.getElementById('watchShow').addEventListener('click', attendAShow);
+
+
+
+        ///////////////////////////
         //      SHELL GAME      //
         /////////////////////////
         const introToShellGame = () => {
             document.getElementById("weatherButton").nextSibling.remove();
             const introduceShellGame = document.createElement('div');
             introduceShellGame.setAttribute("id", "shellGamePage1");
-            introduceShellGame.classList.add('result-of-choice');
+            introduceShellGame.classList.add('textArea');
             introduceShellGame.innerHTML = '<p>A small crowd has formed around a nearby game.</p><p class="non-gameplay-notes"> [More text goes here, during which you learn some helpful information towards rescuing your sister.  Since the plot of rescuing her is NOT relevant to this homework assignment, the storyline text needs to be filled in here AFTER this homework assignment has been completed]</p><p>The performer is playing the cup and ball "shell game" with his audience and invites you to play a round. <br><br></p><div id="bazaarButtons"><button type="button" id="continue" class="choiceButton">Continue</button></div>';
             bazaarBackground.appendChild(introduceShellGame);
 
             document.getElementById('continue').addEventListener('click', playShellGame)
         };
         document.getElementById('shellGame').addEventListener('click', introToShellGame)
+        
+
+        const leaveShellGame = () => {
+            document.getElementById("weatherButton").nextSibling.remove();
+            const leaving = document.createElement('div');
+            leaving.setAttribute("id", "endingShellGame");
+            leaving.classList.add('result-of-choice');
+            leaving.innerHTML = '<p>That is a smart choice! Your time is better spent elsewhere.  You came here to rescue your sister, NOT to play games!</p><p>Where to next?</p><div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton">Visit that eye-catching<br>gold and velvet draped tent</button><br><br><button type="button" id="watchShow" class="choiceButton">Attend a show</button><br><br><br><button type="button" id="backToEntrance" class="choiceButton">Leave the entertainment zone</button><br></div>'
+            bazaarBackground.appendChild(leaving);
+
+            document.getElementById('bordanTent').addEventListener('click', enterBordanTent);
+            document.getElementById('watchShow').addEventListener('click', attendAShow);
+            document.getElementById('backToEntrance').addEventListener('click', returnToEntrance);
+        };
         
 
         const repeatShellGame = () => {
@@ -412,10 +453,13 @@ const enterBazaar = (name, gender, race) => {
                     fetch(`https://httpgoats.com/302.jpg`)
                     .then(imageResult => {
                         foundItImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
                                         
                         // Add event listener for the "Play Again" button
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+
+                        // Event listener for the "Leave" button
+                        document.getElementById('leave').addEventListener('click', leaveShellGame);
                     });
                 }
                 else {
@@ -423,10 +467,10 @@ const enterBazaar = (name, gender, race) => {
                     fetch(`https://httpcats.com/204.jpg`)
                     .then(imageResult => {
                         emptyImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
                                         
-                        // Add event listener for the "Play Again" button
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                        document.getElementById('leave').addEventListener('click', leaveShellGame);
                     });
                 }
             };
@@ -437,10 +481,10 @@ const enterBazaar = (name, gender, race) => {
                     fetch(`https://http.garden/204.jpg`)
                     .then(imageResult => {
                         emptyImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
                                         
-                        // Add event listener for the "Play Again" button
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                        document.getElementById('leave').addEventListener('click', leaveShellGame);
                     });
                 }
                 else {
@@ -448,10 +492,10 @@ const enterBazaar = (name, gender, race) => {
                     fetch(`https://httpgoats.com/302.jpg`)
                     .then(imageResult => {
                         foundItImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
                     
-                        // Add event listener for the "Play Again" button
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                        document.getElementById('leave').addEventListener('click', leaveShellGame);
                     });
                         
                 }
@@ -463,10 +507,10 @@ const enterBazaar = (name, gender, race) => {
                     fetch(`https://httpgoats.com/302.jpg`)
                     .then(imageResult => {
                         foundItImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
 
-                        // Add event listener for the "Play Again" button
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                        document.getElementById('leave').addEventListener('click', leaveShellGame);
                     });
                 }
                 else {
@@ -474,10 +518,10 @@ const enterBazaar = (name, gender, race) => {
                     fetch(`https://http.dog/204.jpg`)
                     .then(imageResult => {
                         emptyImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
 
-                        // Add event listener for the "Play Again" button
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                        document.getElementById('leave').addEventListener('click', leaveShellGame);
                     });
                 }
             };
@@ -485,7 +529,7 @@ const enterBazaar = (name, gender, race) => {
             const cupAndBallsGame = document.createElement('div');
             cupAndBallsGame.setAttribute("id", "containerForShellGame");
             cupAndBallsGame.classList.add('result-of-choice');
-            cupAndBallsGame.innerHTML = '<div id="chooseCup" style="color: antiquewhite;"><p>The performer is sitting directly on the ground with a square-shaped game area formed by a crudely cut piece of wood laid in front of him.  On the board there are three earthenware cups and one marble-sized, brightly painted wooden ball.  The performer picks up each of the 3 cups and shows that they are each empty with nothing inside or underneath any of them.  He then turns each of the cups upside down, placing the wooden ball underneath the middle cup as he turns it over. He places the other cups to either side of it and then begins shuffling the cups around the board, mixing their positions constantly in a rapid and confusing manner until you lose track of which cup is which.  Eventually he arranges them in a horizontal line next to each other and stops moving the cups.</p><p>He reassures you that this is a game being played purely for your own amusement instead of money.  No hustle, no trickery.  Just the fun of purely random luck.</p><p><br>Choose which cup you think the marble is underneath:</p> <button type="button" id="choseLeftCup" class="choiceButton">Left</button><button type="button" id="choseMiddleCup" class="choiceButton">Middle</button><button type="button" id="choseRightCup" class="choiceButton">Right</button></div>'
+            cupAndBallsGame.innerHTML = '<div id="chooseCup" style="color: antiquewhite;"><p>The performer is sitting directly on the ground with a square-shaped game area formed by a crudely cut piece of wood laid in front of him.  On the board there are three earthenware cups and one marble-sized, brightly painted wooden ball.  The performer picks up each of the 3 cups and shows that they are each empty with nothing inside or underneath any of them.  He then turns each of the cups upside down, placing the wooden ball underneath the middle cup as he turns it over. He places the other cups to either side of it and then begins shuffling the cups around the board, mixing their positions constantly in a rapid and confusing manner until you lose track of which cup is which.  Eventually he arranges them in a horizontal line next to each other and stops moving the cups.</p><p>He reassures you that this is a game being played purely for your own amusement instead of money.  No hustle, no trickery.  Just the fun of purely random luck.</p><p><br><b>Choose which cup you think the marble is underneath:</b></p> <button type="button" id="choseLeftCup" class="choiceButton" style="padding: 15px 10px; border-radius: 50%;">Left</button><button type="button" id="choseMiddleCup" class="choiceButton" style="padding: 15px 10px; border-radius: 50%;">Middle</button><button type="button" id="choseRightCup" class="choiceButton" style="padding: 15px 10px; border-radius: 50%;">Right</button><br></div>'
             bazaarBackground.appendChild(cupAndBallsGame);
 
             document.getElementById('choseLeftCup').addEventListener('click', leftCupChosen);
