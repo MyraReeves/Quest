@@ -379,6 +379,24 @@ const enterBazaar = (name, gender, race) => {
         ///////////////////////////
         //      SHELL GAME      //
         /////////////////////////
+        const introToShellGame = () => {
+            document.getElementById("weatherButton").nextSibling.remove();
+            const introduceShellGame = document.createElement('div');
+            introduceShellGame.setAttribute("id", "shellGamePage1");
+            introduceShellGame.classList.add('result-of-choice');
+            introduceShellGame.innerHTML = '<p>A small crowd has formed around a nearby game.</p><p class="non-gameplay-notes"> [More text goes here, during which you learn some helpful information towards rescuing your sister.  Since the plot of rescuing her is NOT relevant to this homework assignment, the storyline text needs to be filled in here AFTER this homework assignment has been completed]</p><p>The performer is playing the cup and ball "shell game" with his audience and invites you to play a round. <br><br></p><div id="bazaarButtons"><button type="button" id="continue" class="choiceButton">Continue</button></div>';
+            bazaarBackground.appendChild(introduceShellGame);
+
+            document.getElementById('continue').addEventListener('click', playShellGame)
+        };
+        document.getElementById('shellGame').addEventListener('click', introToShellGame)
+        
+
+        const repeatShellGame = () => {
+            playShellGame();
+        };
+
+
         const playShellGame = () => {
             document.getElementById("weatherButton").nextSibling.remove();
             randomNumberChosen = Math.floor(Math.random() * 12)        // returns a number between 0 and 11, inclusive of either
@@ -388,26 +406,28 @@ const enterBazaar = (name, gender, race) => {
             // Middle cup = 4, 5, 6, 7 
             // Right cup = 8, 9, 10, 11
 
-            console.log(randomNumberChosen)
-
             const leftCupChosen = () => {
                 if (randomNumberChosen <= 3){
                     // Player won this round!
                     fetch(`https://httpgoats.com/302.jpg`)
                     .then(imageResult => {
-                        // document.getElementById("chooseCup").classList.add('result-of-choice');
                         foundItImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b></p><p>You won a piece of candy for guessing correctly!</p><p>🍬</p>'
-                    })
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+                                        
+                        // Add event listener for the "Play Again" button
+                        document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                    });
                 }
                 else {
                     // Show empty container because player lost:
                     fetch(`https://httpcats.com/204.jpg`)
                     .then(imageResult => {
-                        // document.getElementById("chooseCup").classList.add('result-of-choice');
                         emptyImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly</p>'
-                    })
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+                                        
+                        // Add event listener for the "Play Again" button
+                        document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                    });
                 }
             };
 
@@ -416,47 +436,56 @@ const enterBazaar = (name, gender, race) => {
                     // Show empty container because player lost:
                     fetch(`https://http.garden/204.jpg`)
                     .then(imageResult => {
-                        // document.getElementById("chooseCup").classList.add('result-of-choice');
                         emptyImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly</p>'
-                    })
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+                                        
+                        // Add event listener for the "Play Again" button
+                        document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                    });
                 }
                 else {
                     // Player won this round!
                     fetch(`https://httpgoats.com/302.jpg`)
                     .then(imageResult => {
-                        // document.getElementById("chooseCup").classList.add('result-of-choice');
                         foundItImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b></p><p>You won a piece of candy for guessing correctly!</p><p>🍬</p>'
-                    })
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+                    
+                        // Add event listener for the "Play Again" button
+                        document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                    });
+                        
                 }
             };
 
-            const righthandCupChosen = () => {
+            const righthandCupChosen = () => {                
                 if (randomNumberChosen >= 8){
                     // Player won this round!
                     fetch(`https://httpgoats.com/302.jpg`)
                     .then(imageResult => {
-                        // document.getElementById("chooseCup").classList.add('result-of-choice');
                         foundItImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b></p><p>You won a piece of candy for guessing correctly!</p><p>🍬</p>'
-                    })
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+
+                        // Add event listener for the "Play Again" button
+                        document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                    });
                 }
                 else {
                     // Show empty container because player lost:
                     fetch(`https://http.dog/204.jpg`)
                     .then(imageResult => {
-                        // document.getElementById("chooseCup").classList.add('result-of-choice');
                         emptyImage = imageResult.url;
-                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly</p>'
-                    })
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leaveShellGame" class="choiceButton">Leave</button></div>'
+
+                        // Add event listener for the "Play Again" button
+                        document.getElementById('playAgain').addEventListener('click', repeatShellGame);
+                    });
                 }
             };
 
             const cupAndBallsGame = document.createElement('div');
             cupAndBallsGame.setAttribute("id", "containerForShellGame");
             cupAndBallsGame.classList.add('result-of-choice');
-            cupAndBallsGame.innerHTML = '<div id="chooseCup" style="color: antiquewhite;"><p>Choose which cup you think the marble is underneath:</p> <button type="button" id="choseLeftCup" class="choiceButton">Left</button><button type="button" id="choseMiddleCup" class="choiceButton">Middle</button><button type="button" id="choseRightCup" class="choiceButton">Right</button></div>'
+            cupAndBallsGame.innerHTML = '<div id="chooseCup" style="color: antiquewhite;"><p>The performer is sitting directly on the ground with a square-shaped game area formed by a crudely cut piece of wood laid in front of him.  On the board there are three earthenware cups and one marble-sized, brightly painted wooden ball.  The performer picks up each of the 3 cups and shows that they are each empty with nothing inside or underneath any of them.  He then turns each of the cups upside down, placing the wooden ball underneath the middle cup as he turns it over. He places the other cups to either side of it and then begins shuffling the cups around the board, mixing their positions constantly in a rapid and confusing manner until you lose track of which cup is which.  Eventually he arranges them in a horizontal line next to each other and stops moving the cups.</p><p>He reassures you that this is a game being played purely for your own amusement instead of money.  No hustle, no trickery.  Just the fun of purely random luck.</p><p><br>Choose which cup you think the marble is underneath:</p> <button type="button" id="choseLeftCup" class="choiceButton">Left</button><button type="button" id="choseMiddleCup" class="choiceButton">Middle</button><button type="button" id="choseRightCup" class="choiceButton">Right</button></div>'
             bazaarBackground.appendChild(cupAndBallsGame);
 
             document.getElementById('choseLeftCup').addEventListener('click', leftCupChosen);
@@ -464,15 +493,6 @@ const enterBazaar = (name, gender, race) => {
             document.getElementById('choseRightCup').addEventListener('click', righthandCupChosen);
 
         };
-
-        // const playShellGame = () => {
-        //     document.getElementById("weatherButton").nextSibling.remove();
-        //     shellGame();
-            // <div id="bazaarButtons"><button type="button" id="playShellGameAgain" class="choiceButton" onclick = "">Try Again</button><button type="button" id="bordanTent" class="choiceButton" onclick = "enterBordanTent()">Go visit that eye-catching tent you saw earlier</button><button type="button" id="watchShow" class="choiceButton" onclick="">Attend a show</button><button type="button" id="backToEntrance" class="choiceButton" onclick="returnToEntrance()">Leave entertainment area</button></div>
-        // };
-        const goToShellGame = document.getElementById('shellGame');
-        goToShellGame.addEventListener('click', playShellGame)
-
 
     };
 
