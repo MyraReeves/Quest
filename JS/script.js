@@ -272,23 +272,32 @@ const enterBazaar = (name, gender, race) => {
 
 
     const elementToErase = document.getElementById("weatherButton").nextSibling
-    const removeBazaarChild = () => {
-        elementToErase.remove();
+    // const removeBazaarChild = () => {
+    //     elementToErase.remove();
+    // };
+
+    function returnToEntrance() {
+        let bazaarBackground = document.getElementById('bazaar');
+        let indexOfElementToErase = (bazaarBackground.childNodes.length) - 1;
+        bazaarBackground.childNodes[indexOfElementToErase].remove()
+        const entranceToBazaar = document.createElement('div');
+        entranceToBazaar.classList.add('textArea');
+        entranceToBazaar.setAttribute('id', 'entranceToBazaar');
+        entranceToBazaar.innerHTML = '<p><br>You have returned back to the central hub of the evening market.<br></p>    <img src="./Images/from_pickpikDOTcom_souk-discount-bazaar-alley-thumb.jpg" alt="A pathway thru piles of goods underneath a canvas roof">  <br><br><br>   <div id="bazaarButtons"><p>Go to:</p><button type="button" id="bazaarFood" class="choiceButton">Food Vendors</button> &emsp; <button type="button" id="bazaarMerchants" class="choiceButton">Merchant Tents</button> &emsp; <button type="button" id="bazaarEntertainment" class="choiceButton">Entertainment Zone</button></div>';
+        bazaarBackground.appendChild(entranceToBazaar);
+        document.getElementById('bazaarFood').addEventListener('click', foodVendors);
+        document.getElementById('bazaarMerchants').addEventListener('click', merchantVendors);
+        document.getElementById('bazaarEntertainment').addEventListener('click', entertainmentTents);
     };
 
 
-    // const returnToEntrance = () => {
-    //     elementToErase.remove();
-    //     const entranceToBazaar = document.createElement('div');
-    //     entranceToBazaar.classList.add('textArea');
-    //     entranceToBazaar.setAttribute('id', 'entranceToBazaar');
-    //     entranceToBazaar.innerHTML = ' <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors()">Food Vendors</button><button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors()">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTents()">Entertainment Zone</button></div>';
-    //     bazaarBackground.appendChild(entranceToBazaar);
-    // };
 
-
+    /* ======================================================================================
+    |                               BAZAAR - FOOD VENDORS                                    |
+    |========================================================================================
+    */
     const foodVendors = () => {
-        document.getElementById('bazaarInteractions').remove();
+        document.getElementById("weatherButton").nextSibling.remove();
         const foodZone = document.createElement('div');
         foodZone.classList.add('textArea');
         foodZone.setAttribute("id", "food-zone");
@@ -305,8 +314,13 @@ const enterBazaar = (name, gender, race) => {
     bazaarFood.addEventListener('click', foodVendors);
 
 
+
+    /* ========================================================================================
+    |                               BAZAAR - MERCHANT TENTS                                    |
+    |==========================================================================================
+    */
     const merchantVendors = () => {
-        document.getElementById('bazaarInteractions').remove();
+        document.getElementById("weatherButton").nextSibling.remove();
         const merchantZone = document.createElement('div');
         merchantZone.classList.add('textArea');
         merchantZone.setAttribute("id", "merchant-zone");
@@ -324,9 +338,12 @@ const enterBazaar = (name, gender, race) => {
 
 
 
-
+    /* =============================================================================================
+    |                               BAZAAR - ENTERTAINERS' ZONE                                    |
+    |===============================================================================================
+    */
     const entertainmentTents = () => {
-        document.getElementById('bazaarInteractions').remove();
+        document.getElementById("weatherButton").nextSibling.remove();
         const entertainmenttZone = document.createElement('div');
         entertainmenttZone.classList.add('textArea');
         entertainmenttZone.setAttribute("id", "entertainment-zone");
@@ -545,27 +562,9 @@ const enterBazaar = (name, gender, race) => {
 
 
 
-
-
-    // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors();">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTents();">Entertainment Zone</button></div>
-
-    // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors();">Food Vendors</button><button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors();">Merchant Tents</button></div>
-
-    // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors();">Food Vendors</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTents();">Entertainment Zone</button></div>
 };
 
 
-
-function returnToEntrance() {
-    let bazaarBackground = document.getElementById('bazaar');
-    let indexOfElementToErase = (bazaarBackground.childNodes.length) - 1;
-    bazaarBackground.childNodes[indexOfElementToErase].remove()
-    const entranceToBazaar = document.createElement('div');
-    entranceToBazaar.classList.add('textArea');
-    entranceToBazaar.setAttribute('id', 'entranceToBazaar');
-    entranceToBazaar.innerHTML = '<p><br>You have returned back to the central hub of the evening market.<br></p>    <img src="./Images/from_pickpikDOTcom_souk-discount-bazaar-alley-thumb.jpg" alt="A pathway thru piles of goods underneath a canvas roof">  <br><br><br>   <div id="bazaarButtons"><p>Go to:</p><button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors()">Food Vendors</button> &emsp; <button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors()">Merchant Tents</button> &emsp; <button type="button" id="bazaarEntertainment" class="choiceButton">Entertainment Zone</button></div>';
-    bazaarBackground.appendChild(entranceToBazaar);
-};
 
 
 
