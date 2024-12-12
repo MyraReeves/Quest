@@ -3,6 +3,7 @@ characterName = "----"
 /*  HTTP Status Dogs:    https://http.dog/
 ----------------------------------------------------------------------
 No Content dog = https://http.dog/204
+Empty garden pot = https://http.garden/204
 No Content cat = https://httpcats.com/204
 Found goat = https://httpgoats.com/302
 
