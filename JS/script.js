@@ -257,9 +257,12 @@ const enterBazaar = (name, gender, race) => {
     const bazaarBackground = document.createElement('div');
     bazaarBackground.classList.add('bazaar-background');
     bazaarBackground.setAttribute("id", "bazaar");
-    const weatherWidget = '<div id="ww_cf581cbb2c2a8" v=\'1.3\' loc=\'id\' a=\'{"t":"horizontal","lang":"en","sl_lpl":1,"ids":["wl4025"],"font":"Arial","sl_ics":"one_a","sl_sot":"fahrenheit","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_nme":3,"el_phw":3,"el_whr":3}\'><a href="https://weatherwidget.org/" id="ww_cf581cbb2c2a8_u" target="_blank">HTML Weather Widget for website</a></div><script async src="https://app3.weatherwidget.org/js/?id=ww_cf581cbb2c2a8"></script>';
-    bazaarBackground.innerHTML = weatherWidget;
+    const weatherButton = '<div id = "weatherButton"></div>'
+    // const weatherWidget = '<div id="ww_cf581cbb2c2a8" v=\'1.3\' loc=\'id\' a=\'{"t":"horizontal","lang":"en","sl_lpl":1,"ids":["wl4025"],"font":"Arial","sl_ics":"one_a","sl_sot":"fahrenheit","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_nme":3,"el_phw":3,"el_whr":3}\'><a href="https://weatherwidget.org/" id="ww_cf581cbb2c2a8_u" target="_blank">HTML Weather Widget for website</a></div><script async src="https://app3.weatherwidget.org/js/?id=ww_cf581cbb2c2a8"></script>';
+    // bazaarBackground.innerHTML = weatherWidget;
+    bazaarBackground.innerHTML = weatherButton;
     landingPage.appendChild(bazaarBackground);
+
 
     const textArea = document.createElement('div');
     textArea.classList.add('textArea');
@@ -267,6 +270,21 @@ const enterBazaar = (name, gender, race) => {
     textArea.innerHTML = '<p class="short-paragraph">Brave ' + chosenName +', you have journeyed long, hard, and far from home on your quest. Shortly after sunset, you finally reach where the forested path gives way to a large open expanse outside the stone walls of Antigone.</p>    <img src="./Images/moonlit_forest_path_tiny.jpg" alt="Small image of a moonlit forest path just before an opening"><p class="short-paragraph">As you set up camp for the night, you begin hearing the sounds of many lively conversations coming from nearby. When you investigate, you find a bustling outdoor bazaar. A perfect opportunity to gather more information!</p>    <img src="./Images/pxfuelDOTcom_market-bazaar-people-crowd-night-evening_TINY.jpg" alt="Small image of a crowded, fire-lit, outdoor market in the early evening">    <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="">Food Vendors</button><button type="button" id="bazaarMerchants" class="choiceButton" onclick="">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="">Entertainment Zone</button></div>';
     bazaarBackground.appendChild(textArea);
 
+
+    const elementToErase = document.getElementById("weatherButton").nextSibling
+    const removeBazaarChild = () => {
+        elementToErase.remove();
+    };
+
+
+    // const returnToEntrance = () => {
+    //     elementToErase.remove();
+    //     const entranceToBazaar = document.createElement('div');
+    //     entranceToBazaar.classList.add('textArea');
+    //     entranceToBazaar.setAttribute('id', 'entranceToBazaar');
+    //     entranceToBazaar.innerHTML = ' <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors()">Food Vendors</button><button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors()">Merchant Tents</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTents()">Entertainment Zone</button></div>';
+    //     bazaarBackground.appendChild(entranceToBazaar);
+    // };
 
 
     const foodVendors = () => {
@@ -287,7 +305,7 @@ const enterBazaar = (name, gender, race) => {
     bazaarFood.addEventListener('click', foodVendors);
 
 
-    merchantVendors = () => {
+    const merchantVendors = () => {
         document.getElementById('bazaarInteractions').remove();
         const merchantZone = document.createElement('div');
         merchantZone.classList.add('textArea');
@@ -312,7 +330,7 @@ const enterBazaar = (name, gender, race) => {
         const entertainmenttZone = document.createElement('div');
         entertainmenttZone.classList.add('textArea');
         entertainmenttZone.setAttribute("id", "entertainment-zone");
-        entertainmenttZone.innerHTML = '<p>Multi-colored canvas tents gently sway in the night breeze, carrying a colorful cacophony of cheerful sounds. Musical notes drift into the night air, mixing above the hard-packed earth to form its own unique song.  Scattered between the small tents, open-air wooden stage platforms offer entertainment for all walks of life. Bards and poets tell tales of beauty and love lost, circus performers dazzle onlookers with their acrobatic feats, and vagrants and drunkards wander through the crowd proclaiming their laments.</p>       <img src="./Images/bazaar_entertainers1.jpg" alt="Two musicians in turbans and robes sit in front of the sunset playing stringed instruments"><img src="./Images/bazaar_entertainers2.jpg" alt="A green skinned juggler performs on a nautical-themed stage"><img src="./Images/bazaar_entertainers3-1.jpg" alt="A bare-chested man covered in tribal markings holds a column of fire"><img src="./Images/bazaar_entertainers4.jpg" alt="The silhouette of an aerial acrobat posed high in the air in front of the sunset"><img src="./Images/bazaar_entertainers3-2.jpg" alt="A figure dances in front of a line of fire"><img src="./Images/bazaar_entertainers6.jpg" alt="An old male musician with interesting hair and robes plays a large, wooden, stringed instrument">    <p>In the center of the dusty area there sits an eye-catching tent, larger than the rest and lavishly decorated in a bold combination of shimmering gold and dark velvet. Against the starry sky, this tent is a mountain of exotic fabrics and torch light, standing in stark contrast to the darkness above.</p><br><br>      <div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton" onclick = "">Enter the tent</button><button type="button" id="shellGame" class="choiceButton">Visit a game tent</button><button type="button" id="watchShow" class="choiceButton" onclick="">Attend a show</button></div>';
+        entertainmenttZone.innerHTML = '<p>Multi-colored canvas tents gently sway in the night breeze, carrying a colorful cacophony of cheerful sounds. Musical notes drift into the night air, mixing above the hard-packed earth to form its own unique song.  Scattered between the small tents, open-air wooden stage platforms offer entertainment for all walks of life. Bards and poets tell tales of beauty and love lost, circus performers dazzle onlookers with their acrobatic feats, and vagrants and drunkards wander through the crowd proclaiming their laments.</p>       <img src="./Images/bazaar_entertainers1.jpg" alt="Two musicians in turbans and robes sit in front of the sunset playing stringed instruments"><img src="./Images/bazaar_entertainers2.jpg" alt="A green skinned juggler performs on a nautical-themed stage"><img src="./Images/bazaar_entertainers3-1.jpg" alt="A bare-chested man covered in tribal markings holds a column of fire"><img src="./Images/bazaar_entertainers4.jpg" alt="The silhouette of an aerial acrobat posed high in the air in front of the sunset"><img src="./Images/bazaar_entertainers3-2.jpg" alt="A figure dances in front of a line of fire"><img src="./Images/bazaar_entertainers6.jpg" alt="An old male musician with interesting hair and robes plays a large, wooden, stringed instrument">    <p>In the center of the dusty area there sits an eye-catching tent, larger than the rest and lavishly decorated in a bold combination of shimmering gold and dark velvet. Against the starry sky, this tent is a mountain of exotic fabrics and torch light, standing in stark contrast to the darkness above.</p><br><br>      <div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton" onclick = "">Enter the tent</button><button type="button" id="shellGame" class="choiceButton">Visit gaming area</button><button type="button" id="watchShow" class="choiceButton" onclick="">Attend a show</button></div>';
         bazaarBackground.appendChild(entertainmenttZone);
 
         let magician = '';
@@ -346,16 +364,122 @@ const enterBazaar = (name, gender, race) => {
                 const openTent = document.createElement('div');
                 openTent.setAttribute("id", "magicianTent");
                 openTent.classList.add('result-of-choice');
-                openTent.innerHTML = '<img src = "' + deniedImage + '" style = "margin: 0 30%; width: 40%;"><p>As you reach out your hand to pull back the entrance flap, an angry voice barks, <i>"Can\'t you see the sign!?!"</i></p><p>A muscular dwarf dressed in armor labeled \'Security\' on the chest grabs your wrist and steps in front of the entrance.  Stabbing a stubby finger towards a small hanging sign on the side of the tent, she continues, <i>"Bordan the Magnificent is currently on his break in between performances!  Check back again later if you want to see his show!"</i></p><p>Judging by her angry glare, it is probably best to follow her advice instead of making a scene.</p><br><br>  <div id="bazaarButtons"><button type="button" id="fightDwarf" class="choiceButton" onclick = "">Argue with her anyways.<br>No one tells YOU what to do!</button><button type="button" id="shellGame" class="choiceButton">Visit a game tent</button><button type="button" id="watchShow" class="choiceButton" onclick="">Attend a show</button><button type="button" id="backToEntrance" class="choiceButton" onclick="returnToEntrance()">Leave entertainment area</button></div>'
+                openTent.innerHTML = '<img src = "' + deniedImage + '" style = "margin: 0 30%; width: 40%;"><p>As you reach out your hand to pull back the entrance flap, an angry voice barks, <i>"Can\'t you see the sign!?!"</i></p><p>A muscular dwarf dressed in armor labeled \'Security\' on the chest grabs your wrist and steps in front of the entrance.  Stabbing a stubby finger towards a small hanging sign on the side of the tent, she continues, <i>"Bordan the Magnificent is currently on his break in between performances!  Check back again later if you want to see his show!"</i></p><p>Judging by her angry glare, it is probably best to follow her advice instead of making a scene.</p><br><br>  <div id="bazaarButtons"><button type="button" id="fightDwarf" class="choiceButton" onclick = "">Argue with her anyways.<br>No one tells YOU what to do!</button><button type="button" id="shellGame" class="choiceButton">Visit gaming area</button><button type="button" id="watchShow" class="choiceButton" onclick="">Attend a show</button><button type="button" id="backToEntrance" class="choiceButton" onclick = "returnToEntrance()">Leave entertainment area</button></div>'
                 bazaarBackground.appendChild(openTent);
             })
-        }
+        };
         const bordanTentClosed = document.getElementById('bordanTent');
         bordanTentClosed.addEventListener('click', enterBordanTent);
-    
+
+        // const goBackToEntrance = document.getElementById('backToEntrance');
+        // goBackToEntrance.addEventListener('click', returnToEntrance);
+
+
+
+        ///////////////////////////
+        //      SHELL GAME      //
+        /////////////////////////
+        const playShellGame = () => {
+            document.getElementById("weatherButton").nextSibling.remove();
+            randomNumberChosen = Math.floor(Math.random() * 12)        // returns a number between 0 and 11, inclusive of either
+
+            // Since there are 12 different possible numbers it could be, the choices divide evenly by 3
+            // Left cup = 0, 1, 2, 3
+            // Middle cup = 4, 5, 6, 7 
+            // Right cup = 8, 9, 10, 11
+
+            console.log(randomNumberChosen)
+
+            const leftCupChosen = () => {
+                if (randomNumberChosen <= 3){
+                    // Player won this round!
+                    fetch(`https://httpgoats.com/302.jpg`)
+                    .then(imageResult => {
+                        // document.getElementById("chooseCup").classList.add('result-of-choice');
+                        foundItImage = imageResult.url;
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b></p><p>You won a piece of candy for guessing correctly!</p><p>🍬</p>'
+                    })
+                }
+                else {
+                    // Show empty container because player lost:
+                    fetch(`https://httpcats.com/204.jpg`)
+                    .then(imageResult => {
+                        // document.getElementById("chooseCup").classList.add('result-of-choice');
+                        emptyImage = imageResult.url;
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly</p>'
+                    })
+                }
+            };
+
+            const middleCupChosen = () => {
+                if (randomNumberChosen <= 3 || randomNumberChosen >= 8){
+                    // Show empty container because player lost:
+                    fetch(`https://http.garden/204.jpg`)
+                    .then(imageResult => {
+                        // document.getElementById("chooseCup").classList.add('result-of-choice');
+                        emptyImage = imageResult.url;
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly</p>'
+                    })
+                }
+                else {
+                    // Player won this round!
+                    fetch(`https://httpgoats.com/302.jpg`)
+                    .then(imageResult => {
+                        // document.getElementById("chooseCup").classList.add('result-of-choice');
+                        foundItImage = imageResult.url;
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b></p><p>You won a piece of candy for guessing correctly!</p><p>🍬</p>'
+                    })
+                }
+            };
+
+            const righthandCupChosen = () => {
+                if (randomNumberChosen >= 8){
+                    // Player won this round!
+                    fetch(`https://httpgoats.com/302.jpg`)
+                    .then(imageResult => {
+                        // document.getElementById("chooseCup").classList.add('result-of-choice');
+                        foundItImage = imageResult.url;
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b></p><p>You won a piece of candy for guessing correctly!</p><p>🍬</p>'
+                    })
+                }
+                else {
+                    // Show empty container because player lost:
+                    fetch(`https://http.dog/204.jpg`)
+                    .then(imageResult => {
+                        // document.getElementById("chooseCup").classList.add('result-of-choice');
+                        emptyImage = imageResult.url;
+                        document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly</p>'
+                    })
+                }
+            };
+
+            const cupAndBallsGame = document.createElement('div');
+            cupAndBallsGame.setAttribute("id", "containerForShellGame");
+            cupAndBallsGame.classList.add('result-of-choice');
+            cupAndBallsGame.innerHTML = '<div id="chooseCup" style="color: antiquewhite;"><p>Choose which cup you think the marble is underneath:</p> <button type="button" id="choseLeftCup" class="choiceButton">Left</button><button type="button" id="choseMiddleCup" class="choiceButton">Middle</button><button type="button" id="choseRightCup" class="choiceButton">Right</button></div>'
+            bazaarBackground.appendChild(cupAndBallsGame);
+
+            document.getElementById('choseLeftCup').addEventListener('click', leftCupChosen);
+            document.getElementById('choseMiddleCup').addEventListener('click', middleCupChosen);
+            document.getElementById('choseRightCup').addEventListener('click', righthandCupChosen);
+
+        };
+
+        // const playShellGame = () => {
+        //     document.getElementById("weatherButton").nextSibling.remove();
+        //     shellGame();
+            // <div id="bazaarButtons"><button type="button" id="playShellGameAgain" class="choiceButton" onclick = "">Try Again</button><button type="button" id="bordanTent" class="choiceButton" onclick = "enterBordanTent()">Go visit that eye-catching tent you saw earlier</button><button type="button" id="watchShow" class="choiceButton" onclick="">Attend a show</button><button type="button" id="backToEntrance" class="choiceButton" onclick="returnToEntrance()">Leave entertainment area</button></div>
+        // };
+        const goToShellGame = document.getElementById('shellGame');
+        goToShellGame.addEventListener('click', playShellGame)
+
+
     };
+
     const bazaarEntertainment = document.getElementById('bazaarEntertainment');
     bazaarEntertainment.addEventListener('click', entertainmentTents);
+
+
 
 
 
@@ -365,3 +489,19 @@ const enterBazaar = (name, gender, race) => {
 
     // <div id="bazaarButtons">Choose whether to go to:<button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors();">Food Vendors</button><button type="button" id="bazaarEntertainment" class="choiceButton" onclick="entertainmentTents();">Entertainment Zone</button></div>
 };
+
+
+
+function returnToEntrance() {
+    let bazaarBackground = document.getElementById('bazaar');
+    let indexOfElementToErase = (bazaarBackground.childNodes.length) - 1;
+    bazaarBackground.childNodes[indexOfElementToErase].remove()
+    const entranceToBazaar = document.createElement('div');
+    entranceToBazaar.classList.add('textArea');
+    entranceToBazaar.setAttribute('id', 'entranceToBazaar');
+    entranceToBazaar.innerHTML = '<p><br>You have returned back to the central hub of the evening market.<br></p>    <img src="./Images/from_pickpikDOTcom_souk-discount-bazaar-alley-thumb.jpg" alt="A pathway thru piles of goods underneath a canvas roof">  <br><br><br>   <div id="bazaarButtons"><p>Go to:</p><button type="button" id="bazaarFood" class="choiceButton" onclick="foodVendors()">Food Vendors</button> &emsp; <button type="button" id="bazaarMerchants" class="choiceButton" onclick="merchantVendors()">Merchant Tents</button> &emsp; <button type="button" id="bazaarEntertainment" class="choiceButton">Entertainment Zone</button></div>';
+    bazaarBackground.appendChild(entranceToBazaar);
+};
+
+
+
