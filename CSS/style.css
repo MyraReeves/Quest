@@ -228,6 +228,13 @@ p {
     padding: 0;
 }
 
+.non-gameplay-notes {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    color: pink;
+}
+
+
 /* Generic button for testing API's: */
 .exampleButton {
     margin: 20px;
