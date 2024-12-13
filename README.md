@@ -43,6 +43,8 @@ Graded: December 2024
 
     * As is visible in the AP-list.js file, in the future I would like to also use [OpenWeatherMap API](https://openweathermap.org/api) and [Zen Quotes API](https://zenquotes.io/), but I ran into complications that couldn't be overcome before the project deadline.  So they were left out for now.
 
+    * With regards to the shell game using the "No Content"/"Found" API images, each time the "Replay" button is clicked by the user the browser chooses a brand new winning random number ("cup") needing to be guessed by the user.  Guessing correctly is due to random luck.
+
 5. **Testable code**
 
 6. **Sound effects**
@@ -53,4 +55,4 @@ Graded: December 2024
 
 <br>
 
-In additon, in the near future I also plan on adding an 'Inventory' button which the user will be able to toggle on and off via mouse clicks, to see their inventory of items they have picked up.
+In additon, in the near future I also plan on adding an 'Inventory' button which the user will be able to toggle on and off via mouse clicks, to see an inventory of items they have picked up.
