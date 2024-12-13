@@ -205,12 +205,20 @@ body, html {
     border: solid 1px antiquewhite;
 }
 
-.result-of-choice {
-    margin-left: 10%;
+.result-of-choice, .result-of-choice-WIDER-VERSION {
     background-color: rgb(21, 19, 50);
     border: solid 5px black;
-    width: 70%;
     text-align: center;
+}
+
+.result-of-choice {
+    margin-left: 10%;
+    width: 70%;
+}
+
+.result-of-choice-WIDER-VERSION {
+    margin-left: 7%;  
+    width: 83%;
 }
 
 p {
