@@ -202,9 +202,8 @@ body, html {
     text-align: center;
 }
 
-.choiceButton {
+.choiceButton, .choiceButton2 {
     margin: 0 15px;
-    background-color: antiquewhite;
     color: black;
     border: solid 1px darkorange;
     padding: 3px 10px;
@@ -212,11 +211,26 @@ body, html {
     font-family: "Play", sans-serif;
 }
 
-.choiceButton:hover {
+.choiceButton {
+    background-color: antiquewhite;
+}
+
+.choiceButton2 {
+    background-color: lightcyan;
+}
+
+.choiceButton:hover, .choiceButton2:hover {
     cursor: pointer;
     background-color: black;
-    color: antiquewhite;
     border: solid 1px antiquewhite;
+}
+
+.choiceButton:hover {
+    color: antiquewhite;
+}
+
+.choiceButton2:hover {
+    color: lightcyan;
 }
 
 .result-of-choice, .result-of-choice-WIDER-VERSION {
