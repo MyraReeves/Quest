@@ -164,6 +164,11 @@ class Character {
         this.name = name;
         this.race = race;
         this.gender = gender
+        this.damage = 1;
+    }
+
+    useWeapon(){
+        this.damage++;
     }
 };
 
@@ -173,8 +178,13 @@ class Dwarf extends Character {
         this.size = 'small';
         this.significance = significance;
     }
+    useWeapon(){                // Dwarves using handheld weapons = 3 damage per hit
+        super.useWeapon();
+        super.useWeapon();
+        super.useWeapon();
+    }
     logInstanceToConsole(){
-        console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size}\n\n`)
+        console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size} \nAmount of damage inflicted when using weapons: ${this.damage}\n\n`)
     }
 };
 class Elf extends Character {
@@ -183,8 +193,13 @@ class Elf extends Character {
         this.size = 'tall';
         this.significance = significance;    
     }
+    useWeapon(){                // Elves using handheld weapons = 3 damage per hit
+        super.useWeapon();
+        super.useWeapon();
+        super.useWeapon();
+    }
     logInstanceToConsole(){
-        console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size}\n\n`)
+        console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size} \nAmount of damage inflicted when using weapons: ${this.damage}\n\n`)
     }
 };
 class Gnome extends Character {
@@ -193,8 +208,12 @@ class Gnome extends Character {
         this.size = 'small';
         this.significance = significance;    
     }
+    useWeapon(){                // Gnomes using handheld weapons = 2 damage per hit
+        super.useWeapon();
+        super.useWeapon();
+    }
     logInstanceToConsole(){
-        console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size}\n\n`)
+        console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size} \nAmount of damage inflicted when using weapons: ${this.damage}\n\n`)
     }
 };
 class Halfling extends Character {
@@ -203,8 +222,10 @@ class Halfling extends Character {
         this.size = 'small';
         this.significance = significance;
     }
+                                //Halflings only inflict 1 damage when using handheld weapons and therefore this extension doesn't need to modify the useWeapon method.
+
     logInstanceToConsole(){
-        console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size}\n\n`)
+        console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size} \nAmount of damage inflicted when using weapons: ${this.damage}\n\n`)
     }
 };
 class Human extends Character {
@@ -213,8 +234,12 @@ class Human extends Character {
         this.size = 'tall';
         this.significance = significance;
     }
+    useWeapon(){                // Humans using handheld weapons = 2 damage per hit
+        super.useWeapon();
+        super.useWeapon();
+    }
     logInstanceToConsole(){
-        console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size}\n\n`)
+        console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size} \nAmount of damage inflicted when using weapons: ${this.damage}\n\n`)
     }
 };
 
@@ -286,7 +311,7 @@ const enterBazaar = (name, gender, race) => {
         const entranceToBazaar = document.createElement('div');
         entranceToBazaar.classList.add('textArea');
         entranceToBazaar.setAttribute('id', 'entranceToBazaar');
-        entranceToBazaar.innerHTML = '<p><br>You have returned back to the central hub of the evening market.<br></p>    <img src="./Images/from_pickpikDOTcom_souk-discount-bazaar-alley-thumb.jpg" alt="A pathway thru piles of goods underneath a canvas roof">  <br><br><br>   <div id="bazaarButtons"><p>Go to:</p><button type="button" id="bazaarFood" class="choiceButton">Food Vendors</button> &emsp; <button type="button" id="bazaarMerchants" class="choiceButton">Merchant Tents</button> &emsp; <button type="button" id="bazaarEntertainment" class="choiceButton">Entertainment Zone</button></div>';
+        entranceToBazaar.innerHTML = '<p><br>You have returned back to the central hub of the evening market.<br></p>    <img src="./Images/from_pickpikDOTcom_souk-discount-bazaar-alley-thumb.jpg" alt="A pathway thru piles of goods underneath a canvas roof">  <br><br><br>     <div id="bazaarButtons"><p>Go to:</p><button type="button" id="bazaarFood" class="choiceButton">Food Vendors</button> &emsp; <button type="button" id="bazaarMerchants" class="choiceButton">Merchant Tents</button> &emsp; <button type="button" id="bazaarEntertainment" class="choiceButton">Entertainment Zone</button></div>';
         bazaarBackground.appendChild(entranceToBazaar);
         document.getElementById('bazaarFood').addEventListener('click', foodVendors);
         document.getElementById('bazaarMerchants').addEventListener('click', merchantVendors);
@@ -323,7 +348,7 @@ const enterBazaar = (name, gender, race) => {
         const eatingAtBilberrys = document.createElement('div');
         eatingAtBilberrys.classList.add('textArea-WIDER-VERSION');
         eatingAtBilberrys.setAttribute("id", "bilberryAndBordan");
-        eatingAtBilberrys.innerHTML = `<img src="./Images/grill-sausage-potato_from_pixabayDOTcom.jpg" alt="A grill covered in sausages, cut potatoes, and a thick rectangle of cheese being cooked"><p>The main dish being sold by Bilberry's staff is a heaping pile of cut potatoes mixed with sausages. The entire mound of food is covered in a thick layer of melted cheese.  It is a worthy feast for recovering after such an exhausting day! You order a serving along with a cup of ale and settle down to eat.</p>  <p>Observing the crowd around you, you soon notice a halfling who must be Bilberry, judging from his image on the banner.  He is chatting with a ${playerCharacter.race.toLowerCase()} dressed in a bright blue suit with a red cape and matching red vest, off to one side of the counter.  The brightly dressed visitor is speaking in a highly animated fashion, gesturing his arms about excitedly in front of the cheerful proprietor.  The two of them begin laughing and it is clear they are old friends.</p><p>However, as you watch them, a nervous looking young gnome comes running out of the crowd towards them and anxiously cries out, <i>"Bordan! Bordan! You've lost track of the time and are going to be late for your next performance!"</i>  The brightly dressed ${playerCharacter.race.toLowerCase()}, who must be Bordan, bids his friend good-bye and then turns and hurriedly follows the young gnome back towards the Entertainment Zone of the bazaar.</p><div id="bazaarButtons"><br><button type="button" id="discoverCards" class="choiceButton">Continue</button></div>`
+        eatingAtBilberrys.innerHTML = `<img src="./Images/grill-sausage-potato_from_pixabayDOTcom.jpg" alt="A grill covered in sausages, cut potatoes, and a thick rectangle of cheese being cooked"><p>The main dish being sold by Bilberry's staff is a heaping pile of cut potatoes grilled with sausages. The entire mound of food is covered in a thick layer of melted cheese.  It is a worthy feast for recovering after such an exhausting day! You order a serving along with a cup of ale and settle down to eat.</p>  <p>Observing the crowd around you, you soon notice a halfling who must be Bilberry, judging from his likeness on the banner.  He is chatting with a ${playerCharacter.race.toLowerCase()} dressed in a bright blue suit with a red cape and matching red vest, off to one side of the counter.  The brightly dressed visitor is speaking in a highly animated fashion, gesturing his arms about excitedly in front of the cheerful proprietor.  The two of them begin laughing and it is clear they are old friends.</p><p>However, as you watch them, a nervous looking young gnome comes running out of the crowd towards them and anxiously cries out, <i>"Bordan! Bordan! You've lost track of the time and are going to be late for your next performance!"</i>  The brightly dressed ${playerCharacter.race.toLowerCase()}, who must be Bordan, bids his friend good-bye and then turns and hurriedly follows the young gnome back towards the Entertainment Zone of the bazaar.</p><div id="bazaarButtons"><br><button type="button" id="discoverCards" class="choiceButton">Continue</button></div>`
         bazaarBackground.appendChild(eatingAtBilberrys);
 
         let magician = '';
@@ -355,15 +380,60 @@ const enterBazaar = (name, gender, race) => {
         document.getElementById("weatherButton").nextSibling.remove();
         const discoverDroppedCards = document.createElement('div');
         discoverDroppedCards.setAttribute("id", "bordanDroppedCards");
-        discoverDroppedCards.classList.add('textArea');
+        discoverDroppedCards.classList.add('result-of-choice');
         fetch(`https://www.deckofcardsapi.com/static/img/back.png`)
         .then(imageResult => {
             cardBack = imageResult.url;
-            discoverDroppedCards.innerHTML = '<p>As Bordan hurries away, you notice two playing cards laying haphazardly on the ground where he had been standing.</p>  <p>It seems that he accidentally dropped them. <br></p> <div style = "margin: 0 25%;"> <img src = "' + cardBack + '" style="border: none;"> &emsp; <img src = "' + cardBack + '"alt = "Two playing card backs decorated with intricate and complex black and white geometric patterns" style="border: none;"> </div>'
+            discoverDroppedCards.innerHTML = '<p>As Bordan hurries away, you notice two playing cards laying haphazardly on the ground where he had been standing.</p>  <p>It seems that they accidentally fell out of his suit while he was talking, and no one noticed! <br></p> <div style = "margin: 0 25%;"> <img src = "' + cardBack + '" style="border: none;"> &emsp; <img src = "' + cardBack + '"alt = "Two playing card backs decorated with intricate, complex black and white geometric patterns" style="border: none;"></div>   <div id="bazaarButtons"><br><br><button type="button" id="pickUpCards" class="choiceButton">Pick up the cards to return them to Bordan yourself</button><button type="button" id="tellBilberry" class="choiceButton">Turn in the cards to Bilberry so that he can return them</button>'
             bazaarBackground.appendChild(discoverDroppedCards);
+
+            document.getElementById('pickUpCards').addEventListener('click', turnOverCards);
+            document.getElementById('tellBilberry').addEventListener('click', talkToBilberry);
         })
         .catch(error => console.log(error));
     }
+
+    const turnOverCards = () => {
+        document.getElementById("weatherButton").nextSibling.remove();
+        const returnCardstoBordan = document.createElement('div');
+        returnCardstoBordan.setAttribute("id", "returnCards");
+        returnCardstoBordan.classList.add('result-of-choice');
+        fetch(`https://www.deckofcardsapi.com/api/deck/new/draw/?count=2`)
+        .then(response => response.json())
+        .then(results => {
+            const twoCards = results.cards;
+            let cards = ""
+            for (let i = 0; i < 2; i++) {
+            cards += '<img src="' + twoCards[i].image + '" alt="Image of a ' + twoCards[i].value + " of " + twoCards[i].suit + '"> &emsp;';
+            }
+            returnCardstoBordan.innerHTML = '<p>You flip the cards over to look at them, and this is what you see... <br></p><div style = "margin: 0 25%;">' + cards + '</div> <p>You hurry after Bordan to try to catch up with him in time to return his cards...</p>   <div id="bazaarButtons"><button type="button" id="hurryAfterBordan" class="choiceButton">Continue</button></div>';
+            bazaarBackground.appendChild(returnCardstoBordan);
+            document.getElementById('hurryAfterBordan').addEventListener('click', bordanPerformance);
+    })
+    .catch(error => console.log(error));
+    };
+
+    const bordanPerformance = () => {
+        document.getElementById("weatherButton").nextSibling.remove();
+        const magicShow = document.createElement('div');
+        magicShow.classList.add('textArea');
+        magicShow.setAttribute("id", "bordan-the-magnificent");
+        magicShow.innerHTML = '<p class="non-gameplay-notes">This was the better of the two options for you to choose, since it is the only way to get into Bordan\'s tent and talk to him!  He will reward you greatly with help towards rescuing your sister!  However, that part of the story is not part of this homework assignment and this particular side quest about Bordan and his cards has taken up enough pages within the homework already!  So I am refraining from continuing this part of the story until AFTER turning this homework in.</p>    <div id="bazaarButtons"><button type="button" id="backToEntrance" class="choiceButton">Leave Bordan\'s Tent</button></div>'
+        bazaarBackground.appendChild(magicShow);
+        document.getElementById('backToEntrance').addEventListener('click', returnToEntrance);
+    };
+
+
+    const talkToBilberry = () => {
+        document.getElementById("weatherButton").nextSibling.remove();
+        const freeMeal = document.createElement('div');
+        freeMeal.classList.add('result-of-choice');
+        freeMeal.setAttribute("id", "merchant-zone");
+        freeMeal.innerHTML = '<p>Bilberry thanks you greatly for letting him know. <i>"My friend is so clumsy sometimes!  I\'m sure he would have been inconvenienced to not have a full deck of cards! I will keep these safe for him and return them to him the next time I see him."</i></p><p>He puts them safely in his pocket and then continues, <i>"Did you enjoy your meal?  Let me give it to you for free in return for your kind, altruistic act!"</i>  He repays you the cost of your meal in thanks for helping his friend.  Then the two of you are interrupted by one of his staff having a minor catastrophe at the grill, and he is forced to get back to work.<br><br><br></p>    <div id="bazaarButtons"><p>Continue onward to:</p><button type="button" id="bazaarMerchants" class="choiceButton">Merchant Tents</button> &emsp; <button type="button" id="bazaarEntertainment" class="choiceButton">Entertainment Zone</button></div>'
+        bazaarBackground.appendChild(freeMeal);
+        document.getElementById('bazaarMerchants').addEventListener('click', merchantVendors);
+        document.getElementById('bazaarEntertainment').addEventListener('click', entertainmentTents);
+    };
 
 
     /* ========================================================================================
