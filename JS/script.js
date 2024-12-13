@@ -304,22 +304,27 @@ const enterBazaar = (name, gender, race) => {
         const foodZone = document.createElement('div');
         foodZone.classList.add('textArea');
         foodZone.setAttribute("id", "food-zone");
-        foodZone.innerHTML = '<p>You feel famished after a long day of travel.  Following your nose, you stroll towards the delicious scents of food being cooked.  The further you enter the area, the thicker the crowds become as impatiently waiting lines of customers flow chaotically outward from food stalls and tangle together into a dense mass of hungry bodies. <br><br></p>      <img src="./Images/food-stall1.jpg" alt="Piles of what appear to be potatoes and bread in an outdoor stall"><img src="./Images/food-stall2.jpg" alt="Large baskets full of produce in an outdoor market"><img src="./Images/food-stall3.jpg" alt="Sausages, meat kabobs, and jars of sauces">   <p>Quickly becoming tired of needing to squeeze your way thru, you are relieved to spot a small open table hidden behind a particularly savory smelling tent.</p>';
+        foodZone.innerHTML = '<p>You feel famished after a long day of travel.  Following your nose, you stroll towards the delicious scents of foods being cooked.  The further you enter the area, the thicker the crowds become as impatiently waiting lines of customers flow chaotically outward from food stalls and tangle together into a dense mass of hungry bodies. <br><br></p>      <img src="./Images/food-stall1.jpg" alt="Piles of what appear to be potatoes and bread in an outdoor stall"><img src="./Images/food-stall2.jpg" alt="Large baskets full of produce in an outdoor market"><img src="./Images/food-stall3.jpg" alt="Sausages, meat kabobs, and jars of sauces">   <p>Quickly becoming tired of needing to squeeze your way thru the crowds, you are relieved to spot a small empty table hidden behind a particularly savory smelling vendor off to your right.  The banner on the front of the stall reads "Bilberry\'s Best Potato Sausages" alongside an image of a smiling halfling giving a thumbs up of approval.<br><br></p>   <div id="bazaarButtons"><button type="button" id="eatPotatoSausage" class="choiceButton">Continue</button></div>';
         bazaarBackground.appendChild(foodZone);
-
- 
+        document.getElementById('eatPotatoSausage').addEventListener('click', droppedCardsPart1);
     };
     const bazaarFood = document.getElementById('bazaarFood');
     bazaarFood.addEventListener('click', foodVendors);
 
-    const droppedCards = () => {
+
+    const droppedCardsPart1 = () => {
         const potatoSausageVendorName = 'Tobold Bilberry';
         const potatoSausageVendorRace = 'Halfling';
         const potatoSausageVendorGender = 'Male';
         const potatoSausageVendor = new Halfling('FOOD VENDOR', potatoSausageVendorName, potatoSausageVendorRace, potatoSausageVendorGender);
         potatoSausageVendor.logInstanceToConsole();
 
-        `<p>The plates being sold are a heaping pile of potatoes mixed with cut sausages, and the entire mound of food is covered in a thick layer of melted cheese.  A worthy feast to recover after such an exhausting day!  You order a serving along with a cup of ale and settle down to eat.</p>  <p>Observing the crowd around you, you soon notice another ${playerCharacter.race.toLowerCase()} has arrived at Bilberry's tent.  He is having an animated conversation off to one side with the cheerful proprietor, gesturing his arms about and laughing with the hobbit.</p>`
+        document.getElementById("weatherButton").nextSibling.remove();
+        const eatingAtBilberrys = document.createElement('div');
+        eatingAtBilberrys.classList.add('textArea-WIDER-VERSION');
+        eatingAtBilberrys.setAttribute("id", "bilberryAndBordan");
+        eatingAtBilberrys.innerHTML = `<img src="./Images/grill-sausage-potato_from_pixabayDOTcom.jpg" alt="A grill covered in sausages, cut potatoes, and a thick rectangle of cheese being cooked"><p>The main dish being sold by Bilberry's staff is a heaping pile of cut potatoes mixed with sausages. The entire mound of food is covered in a thick layer of melted cheese.  It is a worthy feast for recovering after such an exhausting day! You order a serving along with a cup of ale and settle down to eat.</p>  <p>Observing the crowd around you, you soon notice a halfling who must be Bilberry, judging from his image on the banner.  He is chatting with a ${playerCharacter.race.toLowerCase()} dressed in a bright blue suit with a red cape and matching red vest, off to one side of the counter.  The brightly dressed visitor is speaking in a highly animated fashion, gesturing his arms about excitedly in front of the cheerful proprietor.  The two of them begin laughing and it is clear they are old friends.</p><p>However, as you watch them, a nervous looking young gnome comes running out of the crowd towards them and anxiously cries out, <i>"Bordan! Bordan! You've lost track of the time and are going to be late for your next performance!"</i>  The brightly dressed ${playerCharacter.race.toLowerCase()}, who must be Bordan, bids his friend good-bye and then turns and hurriedly follows the young gnome back towards the Entertainment Zone of the bazaar.</p><div id="bazaarButtons"><br><button type="button" id="discoverCards" class="choiceButton">Continue</button></div>`
+        bazaarBackground.appendChild(eatingAtBilberrys);
 
         let magician = '';
         const magicianName = 'Bordan the Magnificent';
@@ -342,8 +347,23 @@ const enterBazaar = (name, gender, race) => {
         };
         magician.logInstanceToConsole();
 
-
+        document.getElementById('discoverCards').addEventListener('click', droppedCardsPart2);
     };
+
+
+    const droppedCardsPart2 = () => {
+        document.getElementById("weatherButton").nextSibling.remove();
+        const discoverDroppedCards = document.createElement('div');
+        discoverDroppedCards.setAttribute("id", "bordanDroppedCards");
+        discoverDroppedCards.classList.add('textArea');
+        fetch(`https://www.deckofcardsapi.com/static/img/back.png`)
+        .then(imageResult => {
+            cardBack = imageResult.url;
+            discoverDroppedCards.innerHTML = '<p>As Bordan hurries away, you notice two playing cards laying haphazardly on the ground where he had been standing.</p>  <p>It seems that he accidentally dropped them. <br></p> <div style = "margin: 0 25%;"> <img src = "' + cardBack + '" style="border: none;"> &emsp; <img src = "' + cardBack + '"alt = "Two playing card backs decorated with intricate and complex black and white geometric patterns" style="border: none;"> </div>'
+            bazaarBackground.appendChild(discoverDroppedCards);
+        })
+        .catch(error => console.log(error));
+    }
 
 
     /* ========================================================================================
@@ -386,7 +406,7 @@ const enterBazaar = (name, gender, race) => {
             const listenToAgnes = document.createElement('div');
             listenToAgnes.setAttribute("id", "AstronomyPictureOfTheDay");
             listenToAgnes.classList.add('result-of-choice-WIDER-VERSION');
-            listenToAgnes.innerHTML = '<p>You pay the fortune teller and sit down at her counter.</p><p>She smiles warmly at you and says, <i>"Hello, ' + playerCharacter.name + '.  I\'ve been waiting for you."</i> &nbsp; From beneath the velvet tablecloth draped over her counter, she removes a crystal ball and invites you to stare deep into the swirling, dark green clouds within it. &nbsp; <i>"Clear your mind and focus only on what is within,"</i> she instructs. . . </p><p>As you focus, the sounds of the bazaar fade from behind you and everything else around you drops away. . . &nbsp; . . . To your amazement the clouds within the ball suddenly flash a blinding, neon shade of purple and then slowly part! The following mysterious vision is revealed to you : <br></p><img src = "' + dailyImage + '" style = "border-radius: 50%; overflow: hidden; width: 400px; height: 400px; border: 2px solid black; display: block; margin: 0 auto;" alt="Image of ' + altText + '"><div id="bazaarButtons"><br><button type="button" id="ponder" class="choiceButton">Ponder the meaning of this vision</button><br><br><button type="button" id="supplies" class="choiceButton">Thank her and then <br>leave to go buy supplies</button><button type="button" id="otherStalls" class="choiceButton">What a waste of time!<br>Hurry onward to a different tent</button><button type="button" id="backToEntrance" class="choiceButton">Leave merchant zone</button></div>'
+            listenToAgnes.innerHTML = '<p>You pay the fortune teller and sit down at her counter.</p><p>She smiles warmly at you and says, <i>"Hello, ' + playerCharacter.name + '.  I\'ve been waiting for you."</i> &nbsp; From beneath the velvet tablecloth draped over her counter, she removes a crystal ball and invites you to stare deep into the swirling, dark green clouds within it. &nbsp; <i>"Clear your mind and focus only on what is within,"</i> she instructs. . . </p><p>As you focus, the sounds of the bazaar fade from behind you and everything else around you drops away. . . &nbsp; . . . To your amazement the clouds within the ball suddenly flash a blinding, neon shade of purple and then slowly part! The following mysterious vision is revealed to you : <br></p><img src = "' + dailyImage + '" style = "border-radius: 50%; overflow: hidden; width: 400px; height: 400px; border: 2px solid black; display: block; margin: 0 auto;" alt="Image of ' + altText + '"><div id="bazaarButtons"><br><button type="button" id="ponder" class="choiceButton">Ponder the meaning of this vision</button><button type="button" id="supplies" class="choiceButton">Thank her and then <br>leave to go buy supplies</button><button type="button" id="otherStalls" class="choiceButton">What a waste of time!<br>Hurry onward to a different tent</button><button type="button" id="backToEntrance" class="choiceButton">Leave merchant zone</button></div>'
             bazaarBackground.appendChild(listenToAgnes);
 
             document.getElementById('ponder').addEventListener('click', ponderTheCosmos);
@@ -402,7 +422,7 @@ const enterBazaar = (name, gender, race) => {
         const dragon = document.createElement('div');
         dragon.setAttribute("id", "meetTadCooper");
         dragon.classList.add('result-of-choice-WIDER-VERSION');
-        dragon.innerHTML = `<p> You silently ponder to yourself the possible meanings of the strange vision for a moment before giving up and asking the fortune teller whether she has any helpful insights.  She holds out her palm for further payment from you.</p> <p>Once sufficiently paid for additional time, she stares deep into the ball before informing you in a dramatically mysterious voice, <i>"Strange and winding are the games the gods play, my dear ${playerCharacter.name}. Let the wheel of Fate turn, and ye shall find help in the most unlikely of places.  Under an arc of pale moonlight, the crow will knock nine times to reveal salvation."</i></p> <p>She then closes her eyes and is silent for a moment as if concentrating on hearing some unheard voice.  When she opens her eyes she very solemly looks you up and down in judgement, and then mutters quietly to herself with an unhappy sigh, <i>"Only a ${playerCharacter.race.toLowerCase()}, after all..."</i>, before addressing you directly again at a normal volume with, <i>"It is dangerous to go alone. Take this,"</i> as she hands you a small lizard whose cage had been on a shelf at the back of her stall.</p>     <img src="./Images/bearded-dragon_from_publicdomainpicturesDOTnet.jpg" alt="An out-stretched hand with palm facing upward and a very young bearded dragon resting on the palm" style="border: dashed 1px whitesmoke;">   <p><i>"His name is Tad Cooper, and he is a <span class="tinyText">bearded</span> dragon. Take good care of him,"</i> she explains as you gently and carefully pick the creature up.</p>    <div id="bazaarButtons"><button type="button" id="supplies" class="choiceButton">Thank Her Politely For Helping, <br>Then Go Buy Supplies</button><button type="button" id="otherStalls" class="choiceButton">What a Nutter!<br>Mumble Your Thanks, Then Hurry Away</button><button type="button" id="backToEntrance" class="choiceButton">Leave Merchant Area</button></div>`
+        dragon.innerHTML = `<p> You silently ponder to yourself the possible meanings of the strange vision for a moment before giving up and asking the fortune teller whether she has any helpful insights.  She holds out her palm for further payment from you.</p> <p>Once sufficiently paid for additional time, she stares deep into the ball before informing you in a dramatically mysterious voice, <i>"Strange and winding are the games the gods play, my dear ${playerCharacter.name}. Let the wheel of Fate turn, and ye shall find help in the most unlikely of places.  Under an arc of pale moonlight, the crow will knock nine times to reveal salvation."</i></p> <p>She then closes her eyes and is silent for a moment as if concentrating on some unheard voice.  When she opens her eyes she very solemly looks you up and down in judgement, and then mutters quietly to herself with an unhappy sigh, <i>"Only a ${playerCharacter.race.toLowerCase()}, after all..."</i>, before addressing you directly again at a normal volume with, <i>"It is dangerous to go alone. Take this,"</i> as she hands you a small lizard whose cage had been on a shelf at the back of her stall.</p>     <img src="./Images/bearded-dragon_from_publicdomainpicturesDOTnet.jpg" alt="An out-stretched hand with palm facing upward and a very young bearded dragon resting on the palm" style="border: dashed 1px whitesmoke;">   <p><i>"His name is Tad Cooper, and he is a <span class="tinyText">bearded</span> dragon. Take good care of him,"</i> she explains as you gently and carefully pick the creature up.</p>    <div id="bazaarButtons"><button type="button" id="supplies" class="choiceButton">Thank Her Politely For Helping, <br>Then Go Buy Supplies</button><button type="button" id="otherStalls" class="choiceButton">What a Nutter!<br>Mumble Your Thanks, Then Hurry Away</button><button type="button" id="backToEntrance" class="choiceButton">Leave Merchant Area</button></div>`
         bazaarBackground.appendChild(dragon);
         document.getElementById('supplies').addEventListener('click', buySupplies);
         document.getElementById('otherStalls').addEventListener('click', smallStalls);
@@ -479,7 +499,7 @@ const enterBazaar = (name, gender, race) => {
         const bordanTentClosed = document.getElementById('bordanTent');
         bordanTentClosed.addEventListener('click', enterBordanTent);
 
-        
+
         const fightDwarf = () => {
             document.getElementById("bazaar").remove();
             const mistakesWereMade = document.createElement('div');
