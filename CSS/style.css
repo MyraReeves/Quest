@@ -236,6 +236,10 @@ p {
     padding: 0;
 }
 
+.tinyText {
+    font-size: 6pt;
+}
+
 .non-gameplay-notes {
     font-family: 'Courier New', Courier, monospace;
     font-size: medium;
