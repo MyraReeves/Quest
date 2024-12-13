@@ -304,18 +304,46 @@ const enterBazaar = (name, gender, race) => {
         const foodZone = document.createElement('div');
         foodZone.classList.add('textArea');
         foodZone.setAttribute("id", "food-zone");
-        foodZone.innerHTML = '<p>You feel famished after a long day of travel.  Following your nose, you stroll towards the delicious scents of food being cooked.  The further you enter the area, the thicker the crowds become as impatiently waiting lines of customers flow chaotically outward from food stalls and tangle together into a dense mass of hungry bodies. <br><br></p>      <img src="./Images/food-stall1.jpg" alt="Piles of what appear to be potatoes and bread in an outdoor stall"><img src="./Images/food-stall2.jpg" alt="Large baskets full of produce in an outdoor market"><img src="./Images/food-stall3.jpg" alt="Sausages, meat kabobs, and jars of sauces">   <p>Quickly becoming tired of needing to squeeze your way thru, you are relieved to spot a </p>';
+        foodZone.innerHTML = '<p>You feel famished after a long day of travel.  Following your nose, you stroll towards the delicious scents of food being cooked.  The further you enter the area, the thicker the crowds become as impatiently waiting lines of customers flow chaotically outward from food stalls and tangle together into a dense mass of hungry bodies. <br><br></p>      <img src="./Images/food-stall1.jpg" alt="Piles of what appear to be potatoes and bread in an outdoor stall"><img src="./Images/food-stall2.jpg" alt="Large baskets full of produce in an outdoor market"><img src="./Images/food-stall3.jpg" alt="Sausages, meat kabobs, and jars of sauces">   <p>Quickly becoming tired of needing to squeeze your way thru, you are relieved to spot a small open table hidden behind a particularly savory smelling tent.</p>';
         bazaarBackground.appendChild(foodZone);
 
+ 
+    };
+    const bazaarFood = document.getElementById('bazaarFood');
+    bazaarFood.addEventListener('click', foodVendors);
+
+    const droppedCards = () => {
         const potatoSausageVendorName = 'Tobold Bilberry';
         const potatoSausageVendorRace = 'Halfling';
         const potatoSausageVendorGender = 'Male';
         const potatoSausageVendor = new Halfling('FOOD VENDOR', potatoSausageVendorName, potatoSausageVendorRace, potatoSausageVendorGender);
         potatoSausageVendor.logInstanceToConsole();
-    };
-    const bazaarFood = document.getElementById('bazaarFood');
-    bazaarFood.addEventListener('click', foodVendors);
 
+        `<p>The plates being sold are a heaping pile of potatoes mixed with cut sausages, and the entire mound of food is covered in a thick layer of melted cheese.  A worthy feast to recover after such an exhausting day!  You order a serving along with a cup of ale and settle down to eat.</p>  <p>Observing the crowd around you, you soon notice another ${playerCharacter.race.toLowerCase()} has arrived at Bilberry's tent.  He is having an animated conversation off to one side with the cheerful proprietor, gesturing his arms about and laughing with the hobbit.</p>`
+
+        let magician = '';
+        const magicianName = 'Bordan the Magnificent';
+        const magicianRace = chosenRace;
+        const magicianGender = 'Male';
+        if (chosenRace === 'Dwarf'){
+            magician = new Dwarf('MAGICIAN', magicianName, magicianRace, magicianGender);
+        }
+        else if (chosenRace === 'Elf'){
+            magician = new Elf('MAGICIAN', magicianName, magicianRace, magicianGender);
+        }
+        else if (chosenRace === 'Gnome'){
+            magician = new Gnome('MAGICIAN', magicianName, magicianRace, magicianGender);
+        }
+        else if (chosenRace === 'Halfling'){
+            magician = new Halfling('MAGICIAN', magicianName, magicianRace, magicianGender);
+        }
+        else {
+            magician = new Human('MAGICIAN', magicianName, magicianRace, magicianGender);
+        };
+        magician.logInstanceToConsole();
+
+
+    };
 
 
     /* ========================================================================================
@@ -427,29 +455,6 @@ const enterBazaar = (name, gender, race) => {
         entertainmenttZone.innerHTML = '<p>Multi-colored canvas tents gently sway in the night breeze, carrying a colorful cacophony of cheerful sounds. Musical notes drift into the night air, mixing above the hard-packed earth to form its own unique song.  Scattered between the small tents, open-air wooden stage platforms offer entertainment for all walks of life. Bards and poets tell tales of beauty and love lost, circus performers dazzle onlookers with their acrobatic feats, and vagrants and drunkards wander through the crowd proclaiming their laments.</p>       <img src="./Images/bazaar_entertainers1.jpg" alt="Two musicians in turbans and robes sit in front of the sunset playing stringed instruments"><img src="./Images/bazaar_entertainers2.jpg" alt="A green skinned juggler performs on a nautical-themed stage"><img src="./Images/bazaar_entertainers3-1.jpg" alt="A bare-chested man covered in tribal markings holds a column of fire"><img src="./Images/bazaar_entertainers4.jpg" alt="The silhouette of an aerial acrobat posed high in the air in front of the sunset"><img src="./Images/bazaar_entertainers3-2.jpg" alt="A figure dances in front of a line of fire"><img src="./Images/bazaar_entertainers6.jpg" alt="An old male musician with interesting hair and robes plays a large, wooden, stringed instrument">    <p>In the center of the dusty area there sits an eye-catching tent, larger than the rest and lavishly decorated in a bold combination of shimmering gold and dark velvet. Against the starry sky, this tent is a mountain of exotic fabrics and torch light, standing in stark contrast to the darkness above.</p><br><br>      <div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton">Enter the tent</button><button type="button" id="shellGame" class="choiceButton">Visit gaming area</button><button type="button" id="watchShow" class="choiceButton">Attend a show</button></div>';
         bazaarBackground.appendChild(entertainmenttZone);
 
-        let magician = '';
-        let magicianName = 'Bordan the Magnificent';
-        let magicianRace = chosenRace;
-        let magicianGender = 'Male';
-
-        if (chosenRace === 'Dwarf'){
-            magician = new Dwarf('MAGICIAN', magicianName, magicianRace, magicianGender);
-        }
-        else if (chosenRace === 'Elf'){
-            magician = new Elf('MAGICIAN', magicianName, magicianRace, magicianGender);
-        }
-        else if (chosenRace === 'Gnome'){
-            magician = new Gnome('MAGICIAN', magicianName, magicianRace, magicianGender);
-        }
-        else if (chosenRace === 'Halfling'){
-            magician = new Halfling('MAGICIAN', magicianName, magicianRace, magicianGender);
-        }
-        else {
-            magician = new Human('MAGICIAN', magicianName, magicianRace, magicianGender);
-        };
-
-        magician.logInstanceToConsole();
-
 
         ///////////////////////////////
         //      MAGICIAN'S TENT     //
@@ -462,7 +467,7 @@ const enterBazaar = (name, gender, race) => {
                 const openTent = document.createElement('div');
                 openTent.setAttribute("id", "magicianTent");
                 openTent.classList.add('result-of-choice');
-                openTent.innerHTML = '<img src = "' + deniedImage + '" style = "margin: 0 30%; width: 40%;"><p>As you reach out your hand to pull back the entrance flap, an angry voice barks, <i>"Can\'t you see the sign!?!"</i></p><p>A muscular dwarf dressed in armor labeled \'Security\' on the chest grabs your wrist and steps in front of the entrance.  Stabbing a stubby finger towards a small hanging sign on the side of the tent, she continues, <i>"Bordan the Magnificent is currently on his break in between performances!  Check back again later if you want to see his show!"</i></p><p>Judging by her angry glare, it is probably best to follow her advice instead of making a scene.</p><br><br>  <div id="bazaarButtons"><button type="button" id="fight" class="choiceButton">Argue with her anyways.<br>No one tells YOU what to do!</button><button type="button" id="shellGame" class="choiceButton">Visit gaming area</button><button type="button" id="watchShow" class="choiceButton">Attend a show</button><button type="button" id="backToEntrance" class="choiceButton">Leave entertainment area</button></div>'
+                openTent.innerHTML = '<img src = "' + deniedImage + '" style = "margin: 0 30%; width: 40%;"><p>As you reach out your hand to pull back the entrance flap, an angry voice barks, <i>"Can\'t you see the sign!?!"</i></p><p>A muscular dwarf dressed in armor labeled \'Security\' on the chest grabs your wrist and steps in front of the entrance.  Stabbing a stubby finger towards a small hanging sign on the side of the tent, she continues, <i>"Bordan the Magnificent is currently on his break in between performances!  Check back again later if you want to see his show!"</i></p><p>Judging by her angry glare, it is probably best to follow her advice instead of making a scene.</p><br><br>  <div id="bazaarButtons"><button type="button" id="fight" class="choiceButton">Try to force your way past her anyways.<br>No one tells YOU what to do!</button><button type="button" id="shellGame" class="choiceButton">Visit gaming area</button><button type="button" id="watchShow" class="choiceButton">Attend a show</button><button type="button" id="backToEntrance" class="choiceButton">Leave entertainment area</button></div>'
                 bazaarBackground.appendChild(openTent);
 
                 document.getElementById('fight').addEventListener('click', fightDwarf);
@@ -474,11 +479,14 @@ const enterBazaar = (name, gender, race) => {
         const bordanTentClosed = document.getElementById('bordanTent');
         bordanTentClosed.addEventListener('click', enterBordanTent);
 
-        // const goBackToEntrance = document.getElementById('backToEntrance');
-        // goBackToEntrance.addEventListener('click', returnToEntrance);
-
+        
         const fightDwarf = () => {
-
+            document.getElementById("bazaar").remove();
+            const mistakesWereMade = document.createElement('div');
+            mistakesWereMade.setAttribute("id", "youChosePoorly");
+            mistakesWereMade.classList.add('gameOver');
+            mistakesWereMade.innerHTML = '<p>Well, that was a mistake.</p>  <p>The dwarf quickly lunges at your waist, flipping you into the air before you can react. <br> You hit the ground with a heavy thud and feel a dizzying, sharp pain in your head.</p><p>As your world fades to black, the last thing you hear is her shouting loudly for the city guards to come help her "take out the trash."</p><p>I\'m afraid your time in the bazaar has come to a premature end.<br><br><br></p> <p>Thank you for playing. Better luck next time.</p>'
+            landingPage.appendChild(mistakesWereMade);
         };
 
 
