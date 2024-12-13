@@ -164,7 +164,7 @@ class Character {
         this.name = name;
         this.race = race;
         this.gender = gender
-        this.damage = 1;
+        this.damage = 0;
     }
 
     useWeapon(){
@@ -222,8 +222,7 @@ class Halfling extends Character {
         this.size = 'small';
         this.significance = significance;
     }
-                                //Halflings only inflict 1 damage when using handheld weapons and therefore this extension doesn't need to modify the useWeapon method.
-
+    //Halflings only inflict 1 damage when using handheld weapons and therefore this extension class doesn't need to redefine/modify the useWeapon method.
     logInstanceToConsole(){
         console.log(`\nCharacter = ${this.significance} \n-------------------------------\nName: ${this.name} \nGender: ${this.gender} \nRace: ${this.race} \nStature: ${this.size} \nAmount of damage inflicted when using weapons: ${this.damage}\n\n`)
     }
@@ -274,8 +273,9 @@ const enterBazaar = (name, gender, race) => {
         playerCharacter = new Human('PLAYER CHARACTER', name, race, gender);
     };
 
+    playerCharacter.useWeapon();
     playerCharacter.logInstanceToConsole();
-    // console.log(playerCharacter.name);
+
 
     document.getElementById('introHeader').remove();
     document.getElementById('create-character').remove();
