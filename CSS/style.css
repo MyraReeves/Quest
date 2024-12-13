@@ -247,6 +247,18 @@ p {
 }
 
 
+.gameOver {
+    text-align: center;
+    padding-top: 10%;
+    width: 90%;
+}
+
+.gameOver p {
+    margin-left: 10%;
+    font-size: 22pt;
+    color: whitesmoke;
+}
+
 /* Generic button for testing API's: */
 .exampleButton {
     margin: 20px;
