@@ -327,7 +327,7 @@ const enterBazaar = (name, gender, race) => {
         const merchantZone = document.createElement('div');
         merchantZone.classList.add('textArea');
         merchantZone.setAttribute("id", "merchant-zone");
-        merchantZone.innerHTML = '<p>Merchants fill the bulk of the outdoor market and encircle most of its perimeter, with some of the wealthiest vendors using semi-permanent structures directly against the outside of the city\'s walls to facilitate their trade. The area is alive with people shuffling hither and yon, and the sound of craftspeople hawking their wares rings through the brisk night air. Stalls offering every manner of goods litter the borders of the pathways, everything from beautiful jewelry to carpentry tools. From weaponry to painted vases, there is a sense that anything in the known world could be found in this market, if you have the coin to pay for it.<br><br></p>      <img src="./Images/merchants_tiny-from-pxfuelDOTcom.jpg" alt="Small image of various metal and fabric goods piled up against stone walls in an outdoor marketplace, with a path leading thru the middle">    <p>A psychic with long flowing hair and a glittering black cloak calls out to you as you pass by her prophesies stall.  She bids you come have your fortune read.<br><br></p>    <div id="bazaarButtons"><button type="button" id="agnesNutter" class="choiceButton">Visit the Fortune Teller</button><button type="button" id="supplies" class="choiceButton">Buy Supplies</button><button type="button" id="otherStalls" class="choiceButton">Browse Small Merchandise Stalls</button></div>';
+        merchantZone.innerHTML = '<p>Merchants fill the bulk of the outdoor market and encircle most of its perimeter, with some of the wealthiest vendors using semi-permanent structures directly against the outside of the city\'s walls to facilitate their trade. The area is alive with people shuffling hither and yon, and the sound of craftspeople hawking their wares rings through the brisk night air. Stalls offering every manner of goods litter the borders of the pathways, everything from beautiful jewelry to carpentry tools. From weaponry to painted vases, there is a sense that anything in the known world could be found in this market, if you have the coin to pay for it.<br><br></p>      <img src="./Images/merchants_tiny-from-pxfuelDOTcom.jpg" alt="Small image of various metal and fabric goods piled up against stone walls in an outdoor marketplace, with a path leading thru the middle">    <p>A psychic fortune teller with long flowing hair and a glittering black cloak calls out to you as you pass by her stall.  She bids you come have your fortune read.<br><br></p>    <div id="bazaarButtons"><button type="button" id="agnesNutter" class="choiceButton">Visit the Fortune Teller</button><button type="button" id="supplies" class="choiceButton">Buy Supplies</button><button type="button" id="otherStalls" class="choiceButton">Browse Small Merchandise Stalls</button></div>';
         bazaarBackground.appendChild(merchantZone);
         document.getElementById('agnesNutter').addEventListener('click', fortuneTeller);
         document.getElementById('supplies').addEventListener('click', buySupplies);
@@ -344,9 +344,9 @@ const enterBazaar = (name, gender, race) => {
         document.getElementById("weatherButton").nextSibling.remove();
 
         const fortuneTellerName = 'Agnes Nutter';
-        const fortuneTellerRace = 'Human';
+        const fortuneTellerRace = 'Gnome';
         const fortuneTellerGender = 'Female';
-        const fortuneTeller = new Human('FORTUNE TELLER', fortuneTellerName, fortuneTellerRace, fortuneTellerGender);
+        const fortuneTeller = new Gnome('FORTUNE TELLER', fortuneTellerName, fortuneTellerRace, fortuneTellerGender);
         fortuneTeller.logInstanceToConsole();
 
         fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
@@ -358,23 +358,28 @@ const enterBazaar = (name, gender, race) => {
             const listenToAgnes = document.createElement('div');
             listenToAgnes.setAttribute("id", "AstronomyPictureOfTheDay");
             listenToAgnes.classList.add('result-of-choice-WIDER-VERSION');
-            listenToAgnes.innerHTML = '<p>You pay the fortune teller and sit down at her counter.</p><p>She smiles warmly at you and says, <i>"Hello, ' + playerCharacter.name + '.  I\'ve been waiting for you."</i> &nbsp; From beneath the velvet tablecloth draped over her counter, she removes a crystal ball and invites you to stare deep into the swirling, dark green clouds within it. &nbsp; <i>"Clear your mind and focus only on what is within,"</i> she instructs. . . </p><p>As you focus, the sounds of the bazaar fade from behind you and everything else around you drops away. . . &nbsp; . . . To your amazement the clouds within the ball suddenly flash a blinding, neon shade of purple and then slowly part! The following mysterious vision is revealed to you : <br></p><img src = "' + dailyImage + '" style = "border-radius: 50%; overflow: hidden; width: 400px; height: 400px; border: 2px solid black; display: block; margin: 0 auto;" alt="Image of ' + altText + '"><div id="bazaarButtons"><br><button type="button" id="ponder" class="choiceButton">Ponder the meaning of this vision</button><br><br><button type="button" id="supplies" class="choiceButton">Thank her and then <br>leave to go buy supplies</button><button type="button" id="otherStalls" class="choiceButton">What a waste of time!<br>Hurry off to the small merchandise stalls</button><button type="button" id="backToEntrance" class="choiceButton">Leave merchant area</button></div>'
+            listenToAgnes.innerHTML = '<p>You pay the fortune teller and sit down at her counter.</p><p>She smiles warmly at you and says, <i>"Hello, ' + playerCharacter.name + '.  I\'ve been waiting for you."</i> &nbsp; From beneath the velvet tablecloth draped over her counter, she removes a crystal ball and invites you to stare deep into the swirling, dark green clouds within it. &nbsp; <i>"Clear your mind and focus only on what is within,"</i> she instructs. . . </p><p>As you focus, the sounds of the bazaar fade from behind you and everything else around you drops away. . . &nbsp; . . . To your amazement the clouds within the ball suddenly flash a blinding, neon shade of purple and then slowly part! The following mysterious vision is revealed to you : <br></p><img src = "' + dailyImage + '" style = "border-radius: 50%; overflow: hidden; width: 400px; height: 400px; border: 2px solid black; display: block; margin: 0 auto;" alt="Image of ' + altText + '"><div id="bazaarButtons"><br><button type="button" id="ponder" class="choiceButton">Ponder the meaning of this vision</button><br><br><button type="button" id="supplies" class="choiceButton">Thank her and then <br>leave to go buy supplies</button><button type="button" id="otherStalls" class="choiceButton">What a waste of time!<br>Hurry onward to a different tent</button><button type="button" id="backToEntrance" class="choiceButton">Leave merchant zone</button></div>'
             bazaarBackground.appendChild(listenToAgnes);
 
             document.getElementById('ponder').addEventListener('click', ponderTheCosmos);
             document.getElementById('supplies').addEventListener('click', buySupplies);
             document.getElementById('otherStalls').addEventListener('click', smallStalls);
             document.getElementById('backToEntrance').addEventListener('click', returnToEntrance);
-
         })
         .catch(error => console.log(error));
     };
 
     const ponderTheCosmos = () => {
         document.getElementById("weatherButton").nextSibling.remove();
-        // TO DO
-        // What a Nutter! <br>
-    };
+        const dragon = document.createElement('div');
+        dragon.setAttribute("id", "meetTadCooper");
+        dragon.classList.add('result-of-choice-WIDER-VERSION');
+        dragon.innerHTML = `<p> You silently ponder to yourself the possible meanings of the strange vision for a moment before giving up and asking the fortune teller whether she has any helpful insights.  She holds out her palm for further payment from you.</p> <p>Once sufficiently paid for additional time, she stares deep into the ball before informing you in a dramatically mysterious voice, <i>"Strange and winding are the games the gods play, my dear ${playerCharacter.name}. Let the wheel of Fate turn, and ye shall find help in the most unlikely of places.  Under an arc of pale moonlight, the crow will knock nine times to reveal salvation."</i></p> <p>She then closes her eyes and is silent for a moment as if concentrating on hearing some unheard voice.  When she opens her eyes she very solemly looks you up and down in judgement, and then mutters quietly to herself with an unhappy sigh, <i>"Only a ${playerCharacter.race.toLowerCase()}, after all..."</i>, before addressing you directly again at a normal volume with, <i>"It is dangerous to go alone. Take this,"</i> as she hands you a small lizard whose cage had been on a shelf at the back of her stall.</p>     <img src="./Images/bearded-dragon_from_publicdomainpicturesDOTnet.jpg" alt="An out-stretched hand with palm facing upward and a very young bearded dragon resting on the palm" style="border: dashed 1px whitesmoke;">   <p><i>"His name is Tad Cooper, and he is a <span class="tinyText">bearded</span> dragon. Take good care of him,"</i> she explains as you gently and carefully pick the creature up.</p>    <div id="bazaarButtons"><button type="button" id="supplies" class="choiceButton">Thank Her Politely For Helping, <br>Then Go Buy Supplies</button><button type="button" id="otherStalls" class="choiceButton">What a Nutter!<br>Mumble Your Thanks, Then Hurry Away</button><button type="button" id="backToEntrance" class="choiceButton">Leave Merchant Area</button></div>`
+        bazaarBackground.appendChild(dragon);
+        document.getElementById('supplies').addEventListener('click', buySupplies);
+        document.getElementById('otherStalls').addEventListener('click', smallStalls);
+        document.getElementById('backToEntrance').addEventListener('click', returnToEntrance);
+};
 
 
     ////////////////////////////
@@ -383,7 +388,7 @@ const enterBazaar = (name, gender, race) => {
     const buySupplies = () => {
         document.getElementById("weatherButton").nextSibling.remove();
         const stockUp = document.createElement('div');
-        stockUp.setAttribute("id", "smallStallGossip");
+        stockUp.setAttribute("id", "buyNeededSupplies");
         stockUp.classList.add('textArea');
         stockUp.innerHTML = '<p class="non-gameplay-notes">Any supplies that might be needed for rescuing the user\'s sister later on in the game (after this night market chapter of the game is done) are NOT related to this homework assignment! The homework assignment is only concerned with the details of exploring the market. Since this page is NOT a part of the homework assignment, this page\'s contents will be filled in AFTER this homework assignment has been completed.  Go ahead and use the buttons below to explore a different area.<br><br><br></p><div id="bazaarButtons"><button type="button" id="agnesNutter" class="choiceButton">Visit the Fortune Teller</button><button type="button" id="otherStalls" class="choiceButton">Browse Small Merchandise Stalls</button></div><button type="button" id="backToEntrance" class="choiceButton">Leave the Merchant Area</button></div>'
         bazaarBackground.appendChild(stockUp);
