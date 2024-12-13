@@ -170,6 +170,20 @@ body, html {
     border: dashed 1px whitesmoke;
 }
 
+.textArea-WIDER-VERSION {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 1% 0 0 7%;
+    padding: 10px;
+    position: absolute;
+    width: 80%;
+}
+
+.textArea-WIDER-VERSION img {
+    border: dashed 1px whitesmoke;
+}
+
 .weatherButton {
     margin: 15px;
     padding: 5px 10px;
