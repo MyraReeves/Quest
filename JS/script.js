@@ -329,7 +329,7 @@ const enterBazaar = (name, gender, race) => {
         const foodZone = document.createElement('div');
         foodZone.classList.add('textArea');
         foodZone.setAttribute("id", "food-zone");
-        foodZone.innerHTML = '<p>You feel famished after a long day of travel.  Following your nose, you stroll towards the delicious scents of foods being cooked.  The further you enter the area, the thicker the crowds become as impatiently waiting lines of customers flow chaotically outward from food stalls and tangle together into a dense mass of hungry bodies. <br><br></p>      <img src="./Images/food-stall1.jpg" alt="Piles of what appear to be potatoes and bread in an outdoor stall"><img src="./Images/food-stall2.jpg" alt="Large baskets full of produce in an outdoor market"><img src="./Images/food-stall3.jpg" alt="Sausages, meat kabobs, and jars of sauces">   <p>Quickly becoming tired of needing to squeeze your way thru the crowds, you are relieved to spot a small empty table hidden behind a particularly savory smelling vendor off to your right.  The banner on the front of the stall reads "Bilberry\'s Best Potato Sausages" alongside an image of a smiling halfling giving a thumbs up of approval.<br><br></p>   <div id="bazaarButtons"><button type="button" id="eatPotatoSausage" class="choiceButton">Continue</button></div>';
+        foodZone.innerHTML = '<p>You feel famished after a long day of travel.  Following your nose, you stroll towards the delicious scents of foods being cooked.  The further you enter the area, the thicker the crowds become as impatiently waiting lines of customers flow chaotically outward from food stalls and tangle together into a dense mass of hungry bodies. <br><br></p>      <img src="./Images/food-stall1.jpg" alt="Piles of what appear to be potatoes and bread in an outdoor stall"><img src="./Images/food-stall2.jpg" alt="Large baskets full of produce in an outdoor market"><img src="./Images/food-stall3.jpg" alt="Sausages, meat kabobs, and jars of sauces">   <p>Quickly becoming tired of needing to squeeze your way thru the crowds, you are relieved to spot a small empty table hidden behind a savory smelling vendor off to your right.  The banner on the front of the stall reads "Bilberry\'s Best Potato Sausages" alongside an image of a smiling halfling giving a thumbs up of approval.<br><br></p>   <div id="bazaarButtons"><button type="button" id="eatPotatoSausage" class="choiceButton">Continue</button></div>';
         bazaarBackground.appendChild(foodZone);
         document.getElementById('eatPotatoSausage').addEventListener('click', droppedCardsPart1);
     };
@@ -735,15 +735,24 @@ const enterBazaar = (name, gender, race) => {
         };
 
     };
-
     const bazaarEntertainment = document.getElementById('bazaarEntertainment');
     bazaarEntertainment.addEventListener('click', entertainmentTents);
 
 
 
+
+    setTimeout(function() {
+        document.getElementById('bazaar').remove();
+        const endOfBazaar = document.createElement('div');
+        endOfBazaar.classList.add('gameOver');
+        endOfBazaar.setAttribute("id", "endTheBazaar");
+        endOfBazaar.innerHTML = '<p>Time is up!  The bazaar has ended!</p><p>I hope you used your time wisely!<br><br></p><p>STORY TO BE CONTINUED...!</p>';
+        landingPage.appendChild(endOfBazaar);
+        },
+        900000        // 900000 = 15 minutes.  The user has 15 minutes to explore the contents of the bazaar before it ends.
+    );
+
+
 };
-
-
-
 
 
