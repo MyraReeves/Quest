@@ -31,7 +31,7 @@ Graded: December 2024
     * Name and Race are required fields via HTML constraint validation.
 
 3. **Classes / Objects**
-    * The information selected by the user within the character creation form is inputed into a prototype Character class.  A PlayerCharacter object with more specific attributes is then created using a race-specific "extends" class that inherits from the parent prototype.  NPCs are created during the course of the game using the same group of child extension classes.
+    * The information selected by the user within the character creation form is inputed into a prototype Character class.  A PlayerCharacter object with more specific attributes is then created using a race-specific "extends" class that inherits from the parent prototype.  The result of this is viewable in the browser's console after the user submits the form.  NPCs are created during the course of the game using the same group of extension classes.  Each new NPC object becomes visible in the console upon the user first encountering the character.
 
 4. **Third party APIs**
     * During gameplay, information is fetched from the following free API provider websites:
@@ -43,4 +43,14 @@ Graded: December 2024
 
     * As is visible in the AP-list.js file, in the future I would like to also use [OpenWeatherMap API](https://openweathermap.org/api) and [Zen Quotes API](https://zenquotes.io/), but I ran into complications that couldn't be overcome before the project deadline.  So they were left out for now.
 
-5. Testable code
+5. **Testable code**
+
+6. **Sound effects**
+
+   * To be added in the near future!
+
+<br>
+
+<br>
+
+In additon, in the near future I also plan on adding an 'Inventory' button which the user will be able to toggle on and off via mouse clicks, to see their inventory of items they have picked up.
