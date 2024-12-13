@@ -377,12 +377,19 @@ const enterBazaar = (name, gender, race) => {
     };
 
 
-
     ////////////////////////////
     //      BUY SUPPLIES     //
     //////////////////////////
     const buySupplies = () => {
         document.getElementById("weatherButton").nextSibling.remove();
+        const stockUp = document.createElement('div');
+        stockUp.setAttribute("id", "smallStallGossip");
+        stockUp.classList.add('textArea');
+        stockUp.innerHTML = '<p class="non-gameplay-notes">Any supplies that might be needed for rescuing the user\'s sister later on in the game (after this night market chapter of the game is done) are NOT related to this homework assignment! The homework assignment is only concerned with the details of exploring the market. Since this page is NOT a part of the homework assignment, this page\'s contents will be filled in AFTER this homework assignment has been completed.  Go ahead and use the buttons below to explore a different area.<br><br><br></p><div id="bazaarButtons"><button type="button" id="agnesNutter" class="choiceButton">Visit the Fortune Teller</button><button type="button" id="otherStalls" class="choiceButton">Browse Small Merchandise Stalls</button></div><button type="button" id="backToEntrance" class="choiceButton">Leave the Merchant Area</button></div>'
+        bazaarBackground.appendChild(stockUp);
+        document.getElementById('agnesNutter').addEventListener('click', fortuneTeller);
+        document.getElementById('otherStalls').addEventListener('click', smallStalls);
+        document.getElementById('backToEntrance').addEventListener('click', returnToEntrance);
     };
 
 
@@ -391,8 +398,16 @@ const enterBazaar = (name, gender, race) => {
     //////////////////////////
     const smallStalls = () => {
         document.getElementById("weatherButton").nextSibling.remove();
-        // Chat & Listen In On Others
+        const gossip = document.createElement('div');
+        gossip.setAttribute("id", "smallStallGossip");
+        gossip.classList.add('textArea');
+        gossip.innerHTML = '<p class="non-gameplay-notes">This page will be purely related to the larger storyline plot of rescuing your sister and is NOT relevant to the homework assignment.  Therefore, this page\'s narrative text about chatting with the small merchandise vendors and listening in on the conversations of others will be filled in AFTER this homework assignment has been completed.<br><br><br></p><div id="bazaarButtons"><button type="button" id="agnesNutter" class="choiceButton">Visit the Fortune Teller</button><button type="button" id="supplies" class="choiceButton">Buy Supplies</button><button type="button" id="backToEntrance" class="choiceButton">Leave the Merchant Area</button></div>'
+        bazaarBackground.appendChild(gossip);
+        document.getElementById('agnesNutter').addEventListener('click', fortuneTeller);
+        document.getElementById('supplies').addEventListener('click', buySupplies);
+        document.getElementById('backToEntrance').addEventListener('click', returnToEntrance);
     };
+
 
 
     /* =============================================================================================
