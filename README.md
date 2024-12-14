@@ -31,7 +31,7 @@ Graded: December 2024
     * Name and Race are required fields via HTML constraint validation.
 
 3. **Classes / Objects**
-    * The information selected by the user within the character creation form is inputed into a prototype Character class.  A PlayerCharacter object with more specific attributes is then created using a race-specific "extends" class that inherits from the parent prototype.  The result of this is viewable in the browser's console after the user submits the form.  The useWeapon() method is called once before that console log is sent, in order to demonstrate how much damage would be delivered by the user each time they hit with a weapon.  Eventually, I will display what each race has on the character creation page so that the player will know **before** choosing a race, and then I can delete showing that damage info from the console.
+    * The information selected by the user within the character creation form is inputed into a prototype Character class.  A PlayerCharacter object with more specific attributes is then created using a race-specific "extends" class that inherits from the parent prototype.  The result of this is viewable in the browser's console after the user submits the form.  The useWeapon() method is called once before that console log is sent, in order to demonstrate how much damage would be delivered by the user each time they hit with a weapon.  Eventually, I will display what each race has on the character creation page itself so that the player will know **before** choosing a race, and then I can delete showing that damage info from the console.
     * NPCs are created during the course of the game using the same group of extension classes as the Player Character.  Each new NPC object becomes visible in the console upon the user first encountering the character.  Of note is that the character Bordan the Magnificent will always be the same race as the player.  In the console log, each of the NPCs who appear in the bazaar will show zero for the amount of possible damage they can inflict with a weapon, because the useWeapon() method is never called for them within the code.  As mentioned above, the instance for the PlayerCharacter in the console was purely to allow the player to know (since no chart currently shows on the character creation screen); there didn't seem to be a need to do that for the NPCs.  In theory, the only NPC inside the bazaar who would inflict damage is Bordan's security guard, but she isn't a named character and she uses grappling instead of a weapon anyways.
 
 4. **Third party APIs**
@@ -39,8 +39,9 @@ Graded: December 2024
       * [Deck of Cards](https://www.deckofcardsapi.com/)
       * [HTTP Status Dogs](https://http.dog/)
       * [NASA Open APIs](https://api.nasa.gov/)
-    * And the following widget:
-      * [Weather Widget](https://weatherwidget.org/)
+
+      ~~And the following widget:~~
+~~(https://weatherwidget.org/)~~  <br>I have removed the widget from showing on the screen (but not the code) until I can get that feature working properly.  I don't intend on having it count as part of what I am turning in for the homework assigment.  I didn't want to remove it from the code completely, since the majority of remove() commands in the DOM reference its id.
 
     * As is visible in the AP-list.js file, in the future I would like to also use [OpenWeatherMap API](https://openweathermap.org/api) and [Zen Quotes API](https://zenquotes.io/), but I ran into complications that couldn't be overcome before the project deadline.  So they were left out for now.
 
