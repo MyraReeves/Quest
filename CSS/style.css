@@ -187,7 +187,8 @@ body, html {
 .weatherButton {
     margin: 15px;
     padding: 5px 10px;
-    background-color: lightskyblue;
+    background-color: rgba(166, 135, 250, 0.588);
+    float: right;
 }
 
 .weatherButton:hover {
