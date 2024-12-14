@@ -288,6 +288,12 @@ const enterBazaar = (name, gender, race) => {
     bazaarBackground.innerHTML = weatherButton;
     landingPage.appendChild(bazaarBackground);
 
+    // ***********************  See note in README concerning the weatherWidget.  ********************************************
+    //  I removed the widget and button from showing on the screen since I couldn't get it working by the assignment deadline and don't want it counted as part of the homework assignment, BUT I didn't want to remove it from the code since I intend on solving it in the future and also since its id is referenced so many times by later functions when removing elements via the DOM!
+    // ***********************************************************************************************************************
+
+    
+
 
     //////////////////////////////////////
     //      INTRODUCTION TO BAZAAR     //
