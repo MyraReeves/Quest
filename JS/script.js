@@ -4,6 +4,15 @@ const homepageBackground = document.createElement('div');
 homepageBackground.classList.add('homepage-background');
 homepageBackground.setAttribute("id", "startGame");
 landingPage.appendChild(homepageBackground);
+
+const startingSong = document.createElement('audio');
+startingSong.setAttribute('autoplay', '');
+const songSource = document.createElement('source');
+songSource.setAttribute('src', './Sound/epic-adventure-by-Dmitrii-Spis_from_pixabayDOTcom.mp3')
+songSource.setAttribute('type', 'audio/mpeg')
+homepageBackground.appendChild(startingSong);
+startingSong.appendChild(songSource);
+
 const startButton = document.createElement('button');
 startButton.textContent = 'Start Game';
 startButton.setAttribute("id", "start");
