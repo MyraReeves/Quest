@@ -691,6 +691,8 @@ const enterBazaar = (name, gender, race) => {
                     .then(imageResult => {
                         emptyImage = imageResult.url;
                         document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
+
+                        soundEffect('./Sound/no-dear-wrong-by-Mike-Koenig_from_SoundBibleDOTcom.mp3');
                                         
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
                         document.getElementById('leave').addEventListener('click', leaveShellGame);
@@ -705,6 +707,8 @@ const enterBazaar = (name, gender, race) => {
                     .then(imageResult => {
                         emptyImage = imageResult.url;
                         document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
+
+                        soundEffect('./Sound/no-dear-wrong-by-Mike-Koenig_from_SoundBibleDOTcom.mp3');
                                         
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
                         document.getElementById('leave').addEventListener('click', leaveShellGame);
@@ -735,7 +739,7 @@ const enterBazaar = (name, gender, race) => {
                         document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
 
                         soundEffect('./Sound/applause-by-Yannick_Lemieux_from_soundbibleDOTcom.mp3');
-                        
+
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
                         document.getElementById('leave').addEventListener('click', leaveShellGame);
                     });
@@ -746,6 +750,8 @@ const enterBazaar = (name, gender, race) => {
                     .then(imageResult => {
                         emptyImage = imageResult.url;
                         document.getElementById("chooseCup").innerHTML = '<img src = "' + emptyImage + '" style = "margin: 0 30%; width: 40%;"> <p>Sorry, but that cup is empty. <br> You chose incorrectly<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
+
+                        soundEffect('./Sound/no-dear-wrong-by-Mike-Koenig_from_SoundBibleDOTcom.mp3');
 
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
                         document.getElementById('leave').addEventListener('click', leaveShellGame);
