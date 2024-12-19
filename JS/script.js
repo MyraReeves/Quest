@@ -163,6 +163,15 @@ function createCharacter() {
 
 
 
+/////////////////////////
+// Play Sound Effects //
+///////////////////////
+const soundEffect = (audioURL) => {
+    let audio = new Audio(audioURL);
+    audio.play();
+}
+
+
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////
 // Assignment Requirement:  Use one or more Classes (must use static methods and/or prototype methods) //
@@ -665,6 +674,9 @@ const enterBazaar = (name, gender, race) => {
                     .then(imageResult => {
                         foundItImage = imageResult.url;
                         document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
+
+                        // Play winning sound
+                        soundEffect('./Sound/applause-by-Yannick_Lemieux_from_soundbibleDOTcom.mp3');
                                         
                         // Add event listener for the "Play Again" button
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
@@ -704,6 +716,8 @@ const enterBazaar = (name, gender, race) => {
                     .then(imageResult => {
                         foundItImage = imageResult.url;
                         document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
+
+                        soundEffect('./Sound/yeay-by-Jett_Rifkin_from_soundbibleDOTcom.mp3');
                     
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
                         document.getElementById('leave').addEventListener('click', leaveShellGame);
@@ -720,6 +734,8 @@ const enterBazaar = (name, gender, race) => {
                         foundItImage = imageResult.url;
                         document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
 
+                        soundEffect('./Sound/applause-by-Yannick_Lemieux_from_soundbibleDOTcom.mp3');
+                        
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
                         document.getElementById('leave').addEventListener('click', leaveShellGame);
                     });
