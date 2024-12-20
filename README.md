@@ -47,12 +47,63 @@ Graded: December 2024
 
     * With regards to the shell game using the "No Content"/"Found" API images, each time the "Replay" button is clicked by the user the browser chooses a brand new winning random number ("cup") needing to be guessed by the user.  Guessing correctly is due to random luck.
 
-5. **Sound effects**
-
-   * To be added in the near future!
-
 <br>
 
 <br>
 
 In additon, in the near future I also plan on adding an 'Inventory' button which the user will be able to toggle on and off via mouse clicks, to see an inventory of items they have picked up.
+
+<br>
+
+## 🧞‍♀️ Credit
+
+💖 Testing, creative input, and endless moral support received from Chris "Badger" Mackie. 💖
+
+<br>
+
+🎞️ [Pexels](https://www.pexels.com/) videos by:
+
+* Khairul Onggon
+* LayG Traveller
+
+<br>
+
+[PickPik](https://www.pickpik.com/) - no source credit is given on their website to the photographers. :(
+
+<br>
+
+[🖼️ Pixabay](https://pixabay.com/) photos by:
+
+* Efraimstochter
+* Judi C. Bell
+
+🔊 [Pixabay](https://pixabay.com/) music by:
+
+* Dmitrii Spis
+
+<br>
+
+[🖼️ Public Domain Pictures . net](https://www.publicdomainpictures.net/en/) images by:
+
+* Sheila Brown
+* JL Field
+* Linnaea Mallette
+* Bobby Mikul
+* Rajesh Misra
+* Venita Oberholster
+
+<br>
+
+[🖼️ PXHere](https://pxhere.com/) - no source credit is given on their website to the photographers. :(
+
+<br>
+
+🔊 [SoundBible](https://soundbible.com/) sound effects:
+
+* Mike Koenig
+* Yannick Lemieux
+* Jett Rifkin
+
+<br>
+
+🔊 [Clideo](https://clideo.com/) - there was no mention of who the sound artist was for their music file :(
