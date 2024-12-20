@@ -68,11 +68,11 @@ In additon, in the near future I also plan on adding an 'Inventory' button which
 
 <br>
 
-[PickPik](https://www.pickpik.com/) - no source credit is given on their website to the photographers. :(
+🖼️ [PickPik](https://www.pickpik.com/) - no source credit is given on their website to the photographers. :(
 
 <br>
 
-[🖼️ Pixabay](https://pixabay.com/) photos by:
+🖼️ [Pixabay](https://pixabay.com/) photos by:
 
 * Efraimstochter
 * Judi C. Bell
@@ -83,7 +83,7 @@ In additon, in the near future I also plan on adding an 'Inventory' button which
 
 <br>
 
-[🖼️ Public Domain Pictures . net](https://www.publicdomainpictures.net/en/) images by:
+🖼️ [Public Domain Pictures . net](https://www.publicdomainpictures.net/en/) images by:
 
 * Sheila Brown
 * JL Field
@@ -94,7 +94,7 @@ In additon, in the near future I also plan on adding an 'Inventory' button which
 
 <br>
 
-[🖼️ PXHere](https://pxhere.com/) - no source credit is given on their website to the photographers. :(
+🖼️ [PXHere](https://pxhere.com/) - no source credit is given on their website to the photographers. :(
 
 <br>
 
