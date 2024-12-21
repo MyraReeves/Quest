@@ -263,6 +263,22 @@ class Human extends Character {
 
 
 
+///////////////////////
+// INVENTORY BUTTON //
+/////////////////////
+const inventoryDropdown = document.createElement('div');
+inventoryDropdown.classList.add('dropdown');
+inventoryDropdown.setAttribute("style", "float:left;");
+landingPage.appendChild(inventoryDropdown);
+const inventoryButton = document.createElement('button');
+inventoryButton.classList.add('inventory');
+inventoryButton.innerHTML = 'Inventory';
+inventoryDropdown.appendChild(inventoryButton);
+
+
+
+
+
                                 // //////////////////////////////////
                                 // Chapter 1:  The evening bazaar //
                                 // ////////////////////////////////
