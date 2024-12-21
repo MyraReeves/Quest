@@ -335,6 +335,18 @@ const enterBazaar = (name, gender, race) => {
 
 
 
+
+    /////////////////////////////////////////////////
+    //  Placeholders for possible inventory items //
+    ///////////////////////////////////////////////
+    let candyPlaceholder = document.createElement('li');
+    candyPlaceholder.setAttribute('id', 'inventoryCandy');
+    candyPlaceholder.setAttribute('style', 'hidden');
+    inventoryList.appendChild(candyPlaceholder);
+
+
+
+
     //////////////////////////////////////
     //      INTRODUCTION TO BAZAAR     //
     ////////////////////////////////////
@@ -671,10 +683,13 @@ const enterBazaar = (name, gender, race) => {
             leaving.innerHTML = '<p>That is a smart choice! Your time is better spent elsewhere.  You came here to rescue your sister, NOT to play games!</p><p>Where to next?</p><div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton">Visit that eye-catching<br>gold and velvet draped tent</button><br><br><button type="button" id="watchShow" class="choiceButton">Attend a show</button><br><br><br><button type="button" id="backToEntrance" class="choiceButton2">Leave the entertainment zone</button><br></div>';
             bazaarBackground.appendChild(leaving);
 
-            let addCandy = document.createElement('li');
-            addCandy.innerHTML = `Candy: &emsp; ${candyPieces}`;
-            inventoryList.appendChild(addCandy);
-
+            if (candyPieces > 0){
+                document.getElementById('inventoryCandy').remove();
+                let addCandy = document.createElement('li');
+                addCandy.setAttribute('id', 'inventoryCandy');
+                addCandy.innerHTML = `🍬 Candy: &emsp; ${candyPieces}`;
+                inventoryList.appendChild(addCandy);
+            };
 
             document.getElementById('bordanTent').addEventListener('click', enterBordanTent);
             document.getElementById('watchShow').addEventListener('click', attendAShow);
