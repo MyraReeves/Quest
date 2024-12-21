@@ -268,12 +268,18 @@ class Human extends Character {
 /////////////////////
 const inventoryDropdown = document.createElement('div');
 inventoryDropdown.classList.add('dropdown');
-inventoryDropdown.setAttribute("style", "float:left;");
+inventoryDropdown.setAttribute('id', 'dropdowns');
 landingPage.appendChild(inventoryDropdown);
 const inventoryButton = document.createElement('button');
 inventoryButton.classList.add('inventory');
+inventoryButton.setAttribute("style", "float:left;");
 inventoryButton.innerHTML = 'Inventory';
 inventoryDropdown.appendChild(inventoryButton);
+inventoryContents = document.createElement('div');
+inventoryContents.classList.add('inventory-contents');
+inventoryList = document.createElement('ul');
+inventoryContents.appendChild(inventoryList);
+inventoryDropdown.appendChild(inventoryContents);
 
 
 
@@ -612,6 +618,7 @@ const enterBazaar = (name, gender, race) => {
 
         const fightDwarf = () => {
             document.getElementById("bazaar").remove();
+            let buttonsToErase = document.getElementById('dropdowns').remove();
             const mistakesWereMade = document.createElement('div');
             mistakesWereMade.setAttribute("id", "youChosePoorly");
             mistakesWereMade.classList.add('gameOver');
@@ -642,6 +649,7 @@ const enterBazaar = (name, gender, race) => {
         ///////////////////////////
         //      SHELL GAME      //
         /////////////////////////
+        let candyPieces = 0;
         const introToShellGame = () => {
             document.getElementById("weatherButton").nextSibling.remove();
             const introduceShellGame = document.createElement('div');
@@ -660,8 +668,13 @@ const enterBazaar = (name, gender, race) => {
             const leaving = document.createElement('div');
             leaving.setAttribute("id", "endingShellGame");
             leaving.classList.add('result-of-choice');
-            leaving.innerHTML = '<p>That is a smart choice! Your time is better spent elsewhere.  You came here to rescue your sister, NOT to play games!</p><p>Where to next?</p><div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton">Visit that eye-catching<br>gold and velvet draped tent</button><br><br><button type="button" id="watchShow" class="choiceButton">Attend a show</button><br><br><br><button type="button" id="backToEntrance" class="choiceButton2">Leave the entertainment zone</button><br></div>'
+            leaving.innerHTML = '<p>That is a smart choice! Your time is better spent elsewhere.  You came here to rescue your sister, NOT to play games!</p><p>Where to next?</p><div id="bazaarButtons"><button type="button" id="bordanTent" class="choiceButton">Visit that eye-catching<br>gold and velvet draped tent</button><br><br><button type="button" id="watchShow" class="choiceButton">Attend a show</button><br><br><br><button type="button" id="backToEntrance" class="choiceButton2">Leave the entertainment zone</button><br></div>';
             bazaarBackground.appendChild(leaving);
+
+            let addCandy = document.createElement('li');
+            addCandy.innerHTML = `Candy: &emsp; ${candyPieces}`;
+            inventoryList.appendChild(addCandy);
+
 
             document.getElementById('bordanTent').addEventListener('click', enterBordanTent);
             document.getElementById('watchShow').addEventListener('click', attendAShow);
@@ -693,6 +706,9 @@ const enterBazaar = (name, gender, race) => {
 
                         // Play winning sound
                         soundEffect('./Sound/applause-by-Yannick_Lemieux_from_soundbibleDOTcom.mp3');
+
+                        // Add a candy piece
+                        candyPieces ++;
                                         
                         // Add event listener for the "Play Again" button
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
@@ -738,6 +754,8 @@ const enterBazaar = (name, gender, race) => {
                         document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
 
                         soundEffect('./Sound/yeay-by-Jett_Rifkin_from_soundbibleDOTcom.mp3');
+
+                        candyPieces ++;
                     
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
                         document.getElementById('leave').addEventListener('click', leaveShellGame);
@@ -755,6 +773,8 @@ const enterBazaar = (name, gender, race) => {
                         document.getElementById("chooseCup").innerHTML = '<img src = "' + foundItImage + '" style = "margin: 0 30%; width: 40%;"> <p><b>Congratulations!</b><br>You found the ball!</p><p>You won a piece of candy for guessing correctly!</p><p>🍬<br></p><div id="bazaarButtons"><br><button type="button" id="playAgain" class="choiceButton">Play Again?</button><button type="button" id="leave" class="choiceButton">Leave</button></div>'
 
                         soundEffect('./Sound/applause-by-Yannick_Lemieux_from_soundbibleDOTcom.mp3');
+
+                        candyPieces ++;
 
                         document.getElementById('playAgain').addEventListener('click', repeatShellGame);
                         document.getElementById('leave').addEventListener('click', leaveShellGame);
