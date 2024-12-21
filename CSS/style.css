@@ -137,7 +137,9 @@ body, html {
     box-shadow: 0px 0px 15px 8px white;
 }
 
-/* Game Play - Inventory Button */
+/************************ 
+* Game Play - Inventory *
+*************************/
 .inventory {
     padding: 5px 25px;
     background-color: black;
@@ -145,6 +147,25 @@ body, html {
     border: solid 1px lightsalmon;
 }
 
+.inventory-contents {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.inventory-contents li {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .inventory-contents {
+    display: block;
+}
 
 /************************
 *   Game Play - Bazaar  * 
