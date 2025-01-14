@@ -57,9 +57,13 @@ In additon, in the near future I also plan on adding an 'Inventory' button which
 
 ## 🧞‍♀️ Credit
 
-💖 Testing, creative input, and endless moral support received from Chris "Badger" Mackie. 💖
+💖 Testing, creative input, and endless moral support received from Chris "Badger" Mackie.
+
+❤️ Additional gameplay improvements provided by members of the Gaming channel within Cinema Therapy's Discord server.
 
 <br>
+
+### Public domain media used:
 
 🎞️ [Pexels](https://www.pexels.com/) videos by:
 
@@ -98,7 +102,7 @@ In additon, in the near future I also plan on adding an 'Inventory' button which
 
 <br>
 
-🔊 [SoundBible](https://soundbible.com/) sound effects:
+🔊 [SoundBible](https://soundbible.com/) sound effects by:
 
 * Mike Koenig
 * Yannick Lemieux
