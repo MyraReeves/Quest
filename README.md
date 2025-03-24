@@ -94,7 +94,7 @@ In additon, in the near future I also plan on adding an 'Inventory' button which
 * Rajesh Misra
 * Venita Oberholster
 
-🖼️ [PXHere](https://pxhere.com/) - no source credit is given on their website to the photographers.
+🖼️ [PXHere](https://pxhere.com/) - no source credit is given on their website to the photographers to know who to thank. :(
 
 🔊 [SoundBible](https://soundbible.com/) sound effects by:
 
