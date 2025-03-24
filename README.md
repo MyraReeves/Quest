@@ -4,6 +4,10 @@ This was my final JavaScript project for the first of three JavaScript courses w
 
 Graded: December 2024
 
+### [🏰 Click here](https://myrareeves.github.io/Quest/) to play.
+
+<br>
+
 ## 📜 Assignment
 
 > _Your project must be interactive (i.e. must have event listeners).  The user must be able to interact with the document with the mouse or keyboard and have the document change / update._
@@ -70,11 +74,7 @@ In additon, in the near future I also plan on adding an 'Inventory' button which
 * Khairul Onggon
 * LayG Traveller
 
-<br>
-
-🖼️ [PickPik](https://www.pickpik.com/) - no source credit is given on their website to the photographers. :(
-
-<br>
+🖼️ [PickPik](https://www.pickpik.com/) - no source credit is given on their website to know who the photographers were.
 
 🖼️ [Pixabay](https://pixabay.com/) photos by:
 
@@ -85,8 +85,6 @@ In additon, in the near future I also plan on adding an 'Inventory' button which
 
 * Dmitrii Spis
 
-<br>
-
 🖼️ [Public Domain Pictures . net](https://www.publicdomainpictures.net/en/) images by:
 
 * Sheila Brown
@@ -96,18 +94,12 @@ In additon, in the near future I also plan on adding an 'Inventory' button which
 * Rajesh Misra
 * Venita Oberholster
 
-<br>
-
-🖼️ [PXHere](https://pxhere.com/) - no source credit is given on their website to the photographers. :(
-
-<br>
+🖼️ [PXHere](https://pxhere.com/) - no source credit is given on their website to the photographers.
 
 🔊 [SoundBible](https://soundbible.com/) sound effects by:
 
 * Mike Koenig
 * Yannick Lemieux
 * Jett Rifkin
-
-<br>
 
 🔊 [Clideo](https://clideo.com/) - there was no mention of who the sound artist was for their music file :(
