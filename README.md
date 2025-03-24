@@ -1,6 +1,6 @@
 # 🧝 A Hero's Quest 🧝‍♀️
 
-This was the final JavaScript project for the first of three JavaScript courses within earning the _**Full-Stack Development With JavaScript**_ certificate from the University of Washington.
+This was my final JavaScript project for the first of three JavaScript courses within earning the _**Full-Stack Development With JavaScript**_ certificate from the University of Washington.
 
 Graded: December 2024
 
@@ -55,13 +55,13 @@ In additon, in the near future I also plan on adding an 'Inventory' button which
 
 <br>
 
-## 🧞‍♀️ Credit
+## 🧞‍♀️ Special Thanks To:
 
 💖 Testing, creative input, and endless moral support received from Chris "Badger" Mackie.
 
 ❤️ Additional gameplay improvements provided by members of the Gaming channel within Cinema Therapy's Discord server.
 
-<br>
+❤️ My fellow UW students and teacher for their enthusiastic support.
 
 ### Public domain media used:
 
